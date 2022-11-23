@@ -1,0 +1,738 @@
+{
+  "contractName": "GovernanceProxy",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_logic",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        }
+      ],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback",
+      "payable": true
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive",
+      "payable": true
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_logic\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\"}],\"name\":\"Upgraded\",\"type\":\"event\"},{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/common/gov/GovernanceProxy.sol\":\"GovernanceProxy\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0x15e2d5bd4c28a88548074c54d220e8086f638a71ed07e6b3ba5a70066fcf458d\",\"urls\":[\"bzz-raw://90faf5851c02f9bd42c5bfb54d4f0421a2612f50ab80b2c4fa24fa3792071cc2\",\"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb\"]},\"@openzeppelin/contracts/proxy/Proxy.sol\":{\"keccak256\":\"0x0414d54056b3d8f9102ae1142264e9361408397878148203ab7a25cbf6248f08\",\"urls\":[\"bzz-raw://ebdc01639f69030c754dc3462d5f437c4644164465066187e320f524579fbede\",\"dweb:/ipfs/QmZZhoPYagwu4MoJMAg26Y6Nfj4d9HJzUnvrMNsbo9ZorM\"]},\"@openzeppelin/contracts/proxy/UpgradeableProxy.sol\":{\"keccak256\":\"0x81af1059a5bd5fb25cb0351499e1d4110416f5b0000ffad6427cbf6088b193a4\",\"urls\":[\"bzz-raw://621f2fedaeeacf70ff1554748f63356555f591cdcf29c74e3d23a83720a078a2\",\"dweb:/ipfs/QmYGnscyZgJGYgXKcoYhNX2M6uoJiHS1zTsQnu5NsJxPGG\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea\",\"urls\":[\"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c\",\"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"project:/contracts/common/gov/GovernanceProxy.sol\":{\"keccak256\":\"0xc8c07e08305a657691d4caacd6fa4dc0ab91e2384ee19c4d5f51ce173d75b0c3\",\"urls\":[\"bzz-raw://5dafed8e609d89715ccecb60420502bda24f236fb6cfe931af161d487faa280f\",\"dweb:/ipfs/QmRpj89w4w2Ax2CabHixExv3JBXyS2YZfxm4eb9BeifQyv\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50604051610b10380380610b108339818101604052604081101561003357600080fd5b81516020830180516040519294929383019291908464010000000082111561005a57600080fd5b90830190602082018581111561006f57600080fd5b825164010000000081118282018810171561008957600080fd5b82525081516020918201929091019080838360005b838110156100b657818101518382015260200161009e565b50505050905090810190601f1680156100e35780820380516001836020036101000a031916815260200191505b50604052505050818160006101056101d8640100000000026401000000009004565b60008054600160a060020a031916600160a060020a0383169081178255604051929350917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350604080517f656970313936372e70726f78792e696d706c656d656e746174696f6e000000008152905190819003601c019020600080516020610a6d8339815191526000199091011461019d57fe5b6101af826401000000006101dc810204565b8051156101cf576101cd828264010000000061034f61025982021704565b505b50505050610487565b3390565b6101f28164010000000061037b61028e82021704565b610247576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401808060200182810382526036815260200180610ab46036913960400191505060405180910390fd5b600080516020610a6d83398151915255565b60606102878383604051806060016040528060278152602001610a8d60279139640100000000610294810204565b9392505050565b3b151590565b60606102a88464010000000061028e810204565b6102fd576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401808060200182810382526026815260200180610aea6026913960400191505060405180910390fd5b6000606085600160a060020a0316856040518082805190602001908083835b6020831061033b5780518252601f19909201916020918201910161031c565b6001836020036101000a038019825116818451168082178552505050505050905001915050600060405180830381855af49150503d806000811461039b576040519150601f19603f3d011682016040523d82523d6000602084013e6103a0565b606091505b50915091506103bf8282866103c9640100000000026401000000009004565b9695505050505050565b606083156103d8575081610287565b8251156103e85782518084602001fd5b816040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825283818151815260200191508051906020019080838360005b8381101561044c578181015183820152602001610434565b50505050905090810190601f1680156104795780820380516001836020036101000a031916815260200191505b509250505060405180910390fd5b6105d7806104966000396000f3fe608060405260043610610054577c01000000000000000000000000000000000000000000000000000000006000350463715018a6811461006b5780638da5cb5b14610080578063f2fde38b146100b157610063565b36610063576100616100e4565b005b6100616100e4565b34801561007757600080fd5b506100616100fe565b34801561008c57600080fd5b506100956101cc565b60408051600160a060020a039092168252519081900360200190f35b3480156100bd57600080fd5b50610061600480360360208110156100d457600080fd5b5035600160a060020a03166101db565b6100ec6100fc565b6100fc6100f7610302565b610327565b565b61010661034b565b600160a060020a03166101176101cc565b600160a060020a031614610175576040805160e560020a62461bcd02815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b60008054604051600160a060020a03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a36000805473ffffffffffffffffffffffffffffffffffffffff19169055565b600054600160a060020a031690565b6101e361034b565b600160a060020a03166101f46101cc565b600160a060020a031614610252576040805160e560020a62461bcd02815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600160a060020a03811661029a5760405160e560020a62461bcd02815260040180806020018281038252602681526020018061052f6026913960400191505060405180910390fd5b60008054604051600160a060020a03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc5490565b3660008037600080366000845af43d6000803e808015610346573d6000f35b3d6000fd5b3390565b6060610374838360405180606001604052806027815260200161055560279139610381565b9392505050565b3b151590565b606061038c8461037b565b6103ca5760405160e560020a62461bcd02815260040180806020018281038252602681526020018061057c6026913960400191505060405180910390fd5b6000606085600160a060020a0316856040518082805190602001908083835b602083106104085780518252601f1990920191602091820191016103e9565b6001836020036101000a038019825116818451168082178552505050505050905001915050600060405180830381855af49150503d8060008114610468576040519150601f19603f3d011682016040523d82523d6000602084013e61046d565b606091505b509150915061047d828286610487565b9695505050505050565b60608315610496575081610374565b8251156104a65782518084602001fd5b8160405160e560020a62461bcd0281526004018080602001828103825283818151815260200191508051906020019080838360005b838110156104f35781810151838201526020016104db565b50505050905090810190601f1680156105205780820380516001836020036101000a031916815260200191505b509250505060405180910390fdfe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373416464726573733a206c6f772d6c6576656c2064656c65676174652063616c6c206661696c6564416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6e7472616374a2646970667358221220e2eb6600df65c479577036b0a112dc75b8945c2e60c291abdf6c54f659a9b69564736f6c63430006060033360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc416464726573733a206c6f772d6c6576656c2064656c65676174652063616c6c206661696c65645570677261646561626c6550726f78793a206e657720696d706c656d656e746174696f6e206973206e6f74206120636f6e7472616374416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6e7472616374",
+  "deployedBytecode": "0x608060405260043610610054577c01000000000000000000000000000000000000000000000000000000006000350463715018a6811461006b5780638da5cb5b14610080578063f2fde38b146100b157610063565b36610063576100616100e4565b005b6100616100e4565b34801561007757600080fd5b506100616100fe565b34801561008c57600080fd5b506100956101cc565b60408051600160a060020a039092168252519081900360200190f35b3480156100bd57600080fd5b50610061600480360360208110156100d457600080fd5b5035600160a060020a03166101db565b6100ec6100fc565b6100fc6100f7610302565b610327565b565b61010661034b565b600160a060020a03166101176101cc565b600160a060020a031614610175576040805160e560020a62461bcd02815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b60008054604051600160a060020a03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a36000805473ffffffffffffffffffffffffffffffffffffffff19169055565b600054600160a060020a031690565b6101e361034b565b600160a060020a03166101f46101cc565b600160a060020a031614610252576040805160e560020a62461bcd02815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600160a060020a03811661029a5760405160e560020a62461bcd02815260040180806020018281038252602681526020018061052f6026913960400191505060405180910390fd5b60008054604051600160a060020a03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc5490565b3660008037600080366000845af43d6000803e808015610346573d6000f35b3d6000fd5b3390565b6060610374838360405180606001604052806027815260200161055560279139610381565b9392505050565b3b151590565b606061038c8461037b565b6103ca5760405160e560020a62461bcd02815260040180806020018281038252602681526020018061057c6026913960400191505060405180910390fd5b6000606085600160a060020a0316856040518082805190602001908083835b602083106104085780518252601f1990920191602091820191016103e9565b6001836020036101000a038019825116818451168082178552505050505050905001915050600060405180830381855af49150503d8060008114610468576040519150601f19603f3d011682016040523d82523d6000602084013e61046d565b606091505b509150915061047d828286610487565b9695505050505050565b60608315610496575081610374565b8251156104a65782518084602001fd5b8160405160e560020a62461bcd0281526004018080602001828103825283818151815260200191508051906020019080838360005b838110156104f35781810151838201526020016104db565b50505050905090810190601f1680156105205780820380516001836020036101000a031916815260200191505b509250505060405180910390fdfe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373416464726573733a206c6f772d6c6576656c2064656c65676174652063616c6c206661696c6564416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6e7472616374a2646970667358221220e2eb6600df65c479577036b0a112dc75b8945c2e60c291abdf6c54f659a9b69564736f6c63430006060033",
+  "immutableReferences": {},
+  "sourceMap": "179:217:36:-:0;;;305:89;5:9:-1;2:2;;;27:1;24;17:12;2:2;305:89:36;;;;;;;;;;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;305:89:36;;;;;;;;;;;;;;;;;;;19:11:-1;11:20;;8:2;;;44:1;41;34:12;8:2;62:21;;;;123:4;114:14;;138:31;;;135:2;;;182:1;179;172:12;135:2;213:10;;261:11;244:29;;285:43;;;282:58;-1:-1;233:115;230:2;;;361:1;358;351:12;230:2;372:25;;-1:-1;305:89:36;;420:4:-1;411:14;;;;305:89:36;;;;;411:14:-1;305:89:36;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;305:89:36;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;377:6;385:5;884:17:1;904:12;:10;;;:12;;;:::i;:::-;926:6;:18;;-1:-1:-1;;;;;;926:18:1;-1:-1:-1;;;;;926:18:1;;;;;;;959:43;;926:18;;-1:-1:-1;926:18:1;959:43;;926:6;;959:43;-1:-1:-1;1139:41:8;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;;;;;;;;1131:54:8;;;1099:87;1092:95;;;;1197:26;1216:6;1197:18;;;;:26;:::i;:::-;1236:12;;:16;1233:89;;1268:43;1297:6;1305:5;1268:28;;;;;;:43;:::i;:::-;;1233:89;1019:309;;305:89:36;;179:217;;598:104:17;685:10;598:104;:::o;2492:360:8:-;2573:37;2592:17;2573:18;;;;;;:37;:::i;:::-;2565:104;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;;;;;;2805:31:8;2791:55::o;6284:198:16:-;6367:12;6398:77;6419:6;6427:4;6398:77;;;;;;;;;;;;;;;;;:20;;;;:77;:::i;:::-;6391:84;6284:198;-1:-1:-1;;;6284:198:16:o;726:413::-;1086:20;1124:8;;;726:413::o;6668:417::-;6779:12;6811:18;6822:6;6811:10;;;;:18;:::i;:::-;6803:69;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6943:12;6957:23;6984:6;-1:-1:-1;;;;;6984:19:16;7004:4;6984:25;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;6984:25:16;;;;;;;;;;;;;;;;;;;;;;;12:1:-1;19;14:27;;;;67:4;61:11;56:16;;134:4;130:9;123:4;105:16;101:27;97:43;94:1;90:51;84:4;77:65;157:16;154:1;147:27;211:16;208:1;201:4;198:1;194:12;179:49;5:228;;14:27;32:4;27:9;;5:228;;6942:67:16;;;;7026:52;7044:7;7053:10;7065:12;7026:17;;;:52;;;:::i;:::-;7019:59;6668:417;-1:-1:-1;;;;;;6668:417:16:o;7091:725::-;7206:12;7234:7;7230:580;;;-1:-1:-1;7264:10:16;7257:17;;7230:580;7375:17;;:21;7371:429;;7633:10;7627:17;7693:15;7680:10;7676:2;7672:19;7665:44;7582:145;7772:12;7765:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;7765:20:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;179:217:36;;;;;;;",
+  "deployedSourceMap": "179:217:36:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2843:11:7;:9;:11::i;:::-;179:217:36;;2619:11:7;:9;:11::i;1717:145:1:-;;5:9:-1;2:2;;;27:1;24;17:12;2:2;1717:145:1;;;:::i;1085:85::-;;5:9:-1;2:2;;;27:1;24;17:12;2:2;1085:85:1;;;:::i;:::-;;;;-1:-1:-1;;;;;1085:85:1;;;;;;;;;;;;;;2011:240;;5:9:-1;2:2;;;27:1;24;17:12;2:2;2011:240:1;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;-1:-1;2011:240:1;-1:-1:-1;;;;;2011:240:1;;:::i;2265:110:7:-;2313:17;:15;:17::i;:::-;2340:28;2350:17;:15;:17::i;:::-;2340:9;:28::i;:::-;2265:110::o;1717:145:1:-;1308:12;:10;:12::i;:::-;-1:-1:-1;;;;;1297:23:1;:7;:5;:7::i;:::-;-1:-1:-1;;;;;1297:23:1;;1289:68;;;;;-1:-1:-1;;;;;1289:68:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1823:1:::1;1807:6:::0;;1786:40:::1;::::0;-1:-1:-1;;;;;1807:6:1;;::::1;::::0;1786:40:::1;::::0;1823:1;;1786:40:::1;1853:1;1836:19:::0;;-1:-1:-1;;1836:19:1::1;::::0;;1717:145::o;1085:85::-;1131:7;1157:6;-1:-1:-1;;;;;1157:6:1;1085:85;:::o;2011:240::-;1308:12;:10;:12::i;:::-;-1:-1:-1;;;;;1297:23:1;:7;:5;:7::i;:::-;-1:-1:-1;;;;;1297:23:1;;1289:68;;;;;-1:-1:-1;;;;;1289:68:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;2099:22:1;::::1;2091:73;;;;-1:-1:-1::0;;;;;2091:73:1::1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2200:6;::::0;;2179:38:::1;::::0;-1:-1:-1;;;;;2179:38:1;;::::1;::::0;2200:6;::::1;::::0;2179:38:::1;::::0;::::1;2227:6;:17:::0;;-1:-1:-1;;2227:17:1::1;-1:-1:-1::0;;;;;2227:17:1;;;::::1;::::0;;;::::1;::::0;;2011:240::o;1872:250:8:-;1727:66;2095:11;;2073:43::o;891:895:7:-;1285:14;1282:1;1279;1266:34;1499:1;1496;1480:14;1477:1;1461:14;1454:5;1441:60;1575:16;1572:1;1569;1554:38;1613:6;1680:38;;;;1751:16;1748:1;1741:27;1680:38;1699:16;1696:1;1689:27;598:104:17;685:10;598:104;:::o;6284:198:16:-;6367:12;6398:77;6419:6;6427:4;6398:77;;;;;;;;;;;;;;;;;:20;:77::i;:::-;6391:84;6284:198;-1:-1:-1;;;6284:198:16:o;726:413::-;1086:20;1124:8;;;726:413::o;6668:417::-;6779:12;6811:18;6822:6;6811:10;:18::i;:::-;6803:69;;;;-1:-1:-1;;;;;6803:69:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6943:12;6957:23;6984:6;-1:-1:-1;;;;;6984:19:16;7004:4;6984:25;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;6984:25:16;;;;;;;;;;;;;;;;;;;;;;;12:1:-1;19;14:27;;;;67:4;61:11;56:16;;134:4;130:9;123:4;105:16;101:27;97:43;94:1;90:51;84:4;77:65;157:16;154:1;147:27;211:16;208:1;201:4;198:1;194:12;179:49;5:228;;14:27;32:4;27:9;;5:228;;6942:67:16;;;;7026:52;7044:7;7053:10;7065:12;7026:17;:52::i;:::-;7019:59;6668:417;-1:-1:-1;;;;;;6668:417:16:o;7091:725::-;7206:12;7234:7;7230:580;;;-1:-1:-1;7264:10:16;7257:17;;7230:580;7375:17;;:21;7371:429;;7633:10;7627:17;7693:15;7680:10;7676:2;7672:19;7665:44;7582:145;7772:12;7765:20;;-1:-1:-1;;;;;7765:20:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;7765:20:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "source": "pragma solidity ^0.6.6;\n\nimport {Ownable} from \"@openzeppelin/contracts/access/Ownable.sol\";\nimport {UpgradeableProxy} from \"@openzeppelin/contracts/proxy/UpgradeableProxy.sol\";\n\ncontract GovernanceProxy is Ownable, UpgradeableProxy {\n    // when js , if _data is empty  you can set \"Buffer.from('')\"\n    constructor(address _logic, bytes memory _data) public UpgradeableProxy(_logic, _data) {}\n}\n",
+  "sourcePath": "/root/testnet/code/w3fs-genesis-contracts-bridge/contracts/common/gov/GovernanceProxy.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/common/gov/GovernanceProxy.sol",
+    "exportedSymbols": {
+      "GovernanceProxy": [
+        14973
+      ]
+    },
+    "id": 14974,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14952,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:36"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/access/Ownable.sol",
+        "file": "@openzeppelin/contracts/access/Ownable.sol",
+        "id": 14954,
+        "nodeType": "ImportDirective",
+        "scope": 14974,
+        "sourceUnit": 393,
+        "src": "25:67:36",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 14953,
+              "name": "Ownable",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "33:7:36",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/proxy/UpgradeableProxy.sol",
+        "file": "@openzeppelin/contracts/proxy/UpgradeableProxy.sol",
+        "id": 14956,
+        "nodeType": "ImportDirective",
+        "scope": 14974,
+        "sourceUnit": 1118,
+        "src": "93:84:36",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 14955,
+              "name": "UpgradeableProxy",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "101:16:36",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 14957,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 392,
+              "src": "207:7:36",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$392",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 14958,
+            "nodeType": "InheritanceSpecifier",
+            "src": "207:7:36"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 14959,
+              "name": "UpgradeableProxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1117,
+              "src": "216:16:36",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UpgradeableProxy_$1117",
+                "typeString": "contract UpgradeableProxy"
+              }
+            },
+            "id": 14960,
+            "nodeType": "InheritanceSpecifier",
+            "src": "216:16:36"
+          }
+        ],
+        "contractDependencies": [
+          392,
+          1011,
+          1117,
+          3153
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 14973,
+        "linearizedBaseContracts": [
+          14973,
+          1117,
+          1011,
+          392,
+          3153
+        ],
+        "name": "GovernanceProxy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 14971,
+              "nodeType": "Block",
+              "src": "392:2:36",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 14972,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 14967,
+                    "name": "_logic",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 14962,
+                    "src": "377:6:36",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 14968,
+                    "name": "_data",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 14964,
+                    "src": "385:5:36",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  }
+                ],
+                "id": 14969,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 14966,
+                  "name": "UpgradeableProxy",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1117,
+                  "src": "360:16:36",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_UpgradeableProxy_$1117_$",
+                    "typeString": "type(contract UpgradeableProxy)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "360:31:36"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 14965,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14962,
+                  "mutability": "mutable",
+                  "name": "_logic",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 14972,
+                  "src": "317:14:36",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14961,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "317:7:36",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14964,
+                  "mutability": "mutable",
+                  "name": "_data",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 14972,
+                  "src": "333:18:36",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 14963,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "333:5:36",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "316:36:36"
+            },
+            "returnParameters": {
+              "id": 14970,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "392:0:36"
+            },
+            "scope": 14973,
+            "src": "305:89:36",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 14974,
+        "src": "179:217:36"
+      }
+    ],
+    "src": "0:397:36"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/common/gov/GovernanceProxy.sol",
+      "exportedSymbols": {
+        "GovernanceProxy": [
+          14973
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 14952,
+        "name": "PragmaDirective",
+        "src": "0:23:36"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 393,
+          "absolutePath": "@openzeppelin/contracts/access/Ownable.sol",
+          "file": "@openzeppelin/contracts/access/Ownable.sol",
+          "scope": 14974,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "Ownable"
+                },
+                "id": 14953,
+                "name": "Identifier",
+                "src": "33:7:36"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 14954,
+        "name": "ImportDirective",
+        "src": "25:67:36"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1118,
+          "absolutePath": "@openzeppelin/contracts/proxy/UpgradeableProxy.sol",
+          "file": "@openzeppelin/contracts/proxy/UpgradeableProxy.sol",
+          "scope": 14974,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "UpgradeableProxy"
+                },
+                "id": 14955,
+                "name": "Identifier",
+                "src": "101:16:36"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 14956,
+        "name": "ImportDirective",
+        "src": "93:84:36"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "contractDependencies": [
+            392,
+            1011,
+            1117,
+            3153
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            14973,
+            1117,
+            1011,
+            392,
+            3153
+          ],
+          "name": "GovernanceProxy",
+          "scope": 14974
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Ownable",
+                  "referencedDeclaration": 392,
+                  "type": "contract Ownable"
+                },
+                "id": 14957,
+                "name": "UserDefinedTypeName",
+                "src": "207:7:36"
+              }
+            ],
+            "id": 14958,
+            "name": "InheritanceSpecifier",
+            "src": "207:7:36"
+          },
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "UpgradeableProxy",
+                  "referencedDeclaration": 1117,
+                  "type": "contract UpgradeableProxy"
+                },
+                "id": 14959,
+                "name": "UserDefinedTypeName",
+                "src": "216:16:36"
+              }
+            ],
+            "id": 14960,
+            "name": "InheritanceSpecifier",
+            "src": "216:16:36"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "name": "",
+              "overrides": null,
+              "scope": 14973,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_logic",
+                      "overrides": null,
+                      "scope": 14972,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 14961,
+                        "name": "ElementaryTypeName",
+                        "src": "317:7:36"
+                      }
+                    ],
+                    "id": 14962,
+                    "name": "VariableDeclaration",
+                    "src": "317:14:36"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_data",
+                      "overrides": null,
+                      "scope": 14972,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "bytes",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes"
+                        },
+                        "id": 14963,
+                        "name": "ElementaryTypeName",
+                        "src": "333:5:36"
+                      }
+                    ],
+                    "id": 14964,
+                    "name": "VariableDeclaration",
+                    "src": "333:18:36"
+                  }
+                ],
+                "id": 14965,
+                "name": "ParameterList",
+                "src": "316:36:36"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 14970,
+                "name": "ParameterList",
+                "src": "392:0:36"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1117,
+                      "type": "type(contract UpgradeableProxy)",
+                      "value": "UpgradeableProxy"
+                    },
+                    "id": 14966,
+                    "name": "Identifier",
+                    "src": "360:16:36"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 14962,
+                      "type": "address",
+                      "value": "_logic"
+                    },
+                    "id": 14967,
+                    "name": "Identifier",
+                    "src": "377:6:36"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 14964,
+                      "type": "bytes memory",
+                      "value": "_data"
+                    },
+                    "id": 14968,
+                    "name": "Identifier",
+                    "src": "385:5:36"
+                  }
+                ],
+                "id": 14969,
+                "name": "ModifierInvocation",
+                "src": "360:31:36"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 14971,
+                "name": "Block",
+                "src": "392:2:36"
+              }
+            ],
+            "id": 14972,
+            "name": "FunctionDefinition",
+            "src": "305:89:36"
+          }
+        ],
+        "id": 14973,
+        "name": "ContractDefinition",
+        "src": "179:217:36"
+      }
+    ],
+    "id": 14974,
+    "name": "SourceUnit",
+    "src": "0:397:36"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {
+    "15888": {
+      "events": {},
+      "links": {},
+      "address": "0xc4640F9FBE5dC310CB9eA0269a1f3e8Ade295d4e",
+      "transactionHash": "0x38577bf519941f7f545e8fdff6181d73c5a5fba424f6a2d1959f536e63a4337b"
+    },
+    "15999": {
+      "events": {},
+      "links": {},
+      "address": "0x75c0dd3BA6Fb14447Dc778f271E0d182B5041e04",
+      "transactionHash": "0xe9f6bb72e0d112f313cfb87101daa6941e8b71303ef1160779fe345fcafcbcd7"
+    }
+  },
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-11-17T03:12:05.745Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

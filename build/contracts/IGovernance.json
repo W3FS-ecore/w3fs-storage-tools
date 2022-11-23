@@ -1,0 +1,324 @@
+{
+  "contractName": "IGovernance",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "update",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/common/gov/IGovernance.sol\":\"IGovernance\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/common/gov/IGovernance.sol\":{\"keccak256\":\"0x2949c2d9149ef3d42901875913534784ba8d24a6bbbb8e3025f2551c526aaef4\",\"urls\":[\"bzz-raw://86a12e9835964a10adee31a5648396730e407bfbdce164efbf7052d5ea6d5113\",\"dweb:/ipfs/QmS15orB5ArJDbd7k7fky6X5mAqn64KrbDzFWF8pNAsERV\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.6;\n\ninterface IGovernance {\n    function update(address target, bytes calldata data) external;\n}\n",
+  "sourcePath": "/root/testnet/code/w3fs-genesis-contracts-bridge/contracts/common/gov/IGovernance.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/common/gov/IGovernance.sol",
+    "exportedSymbols": {
+      "IGovernance": [
+        14983
+      ]
+    },
+    "id": 14984,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14975,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:37"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 14983,
+        "linearizedBaseContracts": [
+          14983
+        ],
+        "name": "IGovernance",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "02a688ed",
+            "id": 14982,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "update",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 14980,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14977,
+                  "mutability": "mutable",
+                  "name": "target",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 14982,
+                  "src": "69:14:37",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14976,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "69:7:37",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14979,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 14982,
+                  "src": "85:19:37",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 14978,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "85:5:37",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "68:37:37"
+            },
+            "returnParameters": {
+              "id": 14981,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "114:0:37"
+            },
+            "scope": 14983,
+            "src": "53:62:37",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 14984,
+        "src": "25:92:37"
+      }
+    ],
+    "src": "0:118:37"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/common/gov/IGovernance.sol",
+      "exportedSymbols": {
+        "IGovernance": [
+          14983
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 14975,
+        "name": "PragmaDirective",
+        "src": "0:23:37"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            14983
+          ],
+          "name": "IGovernance",
+          "scope": 14984
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "02a688ed",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "update",
+              "overrides": null,
+              "scope": 14983,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "target",
+                      "overrides": null,
+                      "scope": 14982,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 14976,
+                        "name": "ElementaryTypeName",
+                        "src": "69:7:37"
+                      }
+                    ],
+                    "id": 14977,
+                    "name": "VariableDeclaration",
+                    "src": "69:14:37"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "data",
+                      "overrides": null,
+                      "scope": 14982,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "bytes",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes"
+                        },
+                        "id": 14978,
+                        "name": "ElementaryTypeName",
+                        "src": "85:5:37"
+                      }
+                    ],
+                    "id": 14979,
+                    "name": "VariableDeclaration",
+                    "src": "85:19:37"
+                  }
+                ],
+                "id": 14980,
+                "name": "ParameterList",
+                "src": "68:37:37"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 14981,
+                "name": "ParameterList",
+                "src": "114:0:37"
+              }
+            ],
+            "id": 14982,
+            "name": "FunctionDefinition",
+            "src": "53:62:37"
+          }
+        ],
+        "id": 14983,
+        "name": "ContractDefinition",
+        "src": "25:92:37"
+      }
+    ],
+    "id": 14984,
+    "name": "SourceUnit",
+    "src": "0:118:37"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-11-17T02:32:22.298Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

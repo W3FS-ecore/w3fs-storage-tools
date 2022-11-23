@@ -1,0 +1,2582 @@
+{
+  "contractName": "FileStoreStruct",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/filestore/UtilsContract.sol\":\"FileStoreStruct\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/filestore/UtilsContract.sol\":{\"keccak256\":\"0xf4c4eeb53e12b6bfeec7b9a1900b7b6b54bf54801f9d07c0b8cb3c624cd0a6a8\",\"urls\":[\"bzz-raw://3d448351de8f75e731b68be0f253a8363f24771ed81e9c0ad77fdba4dc85d8dd\",\"dweb:/ipfs/QmUoQWECVbLFjvFWh7WPNFmWJvp6eQ5NZDn3aoZXApytWF\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220daf642a7aa09396ac773ab8db7715d2985024bfced2745045aafe9fd3402208864736f6c63430006060033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220daf642a7aa09396ac773ab8db7715d2985024bfced2745045aafe9fd3402208864736f6c63430006060033",
+  "immutableReferences": {},
+  "sourceMap": "62:1706:53:-:0;;;;5:9:-1;2:2;;;27:1;24;17:12;2:2;62:1706:53;;;;;;;",
+  "deployedSourceMap": "62:1706:53:-:0;;;12:1:-1;9;2:12",
+  "source": "//SPDX-License-Identifier: SimPL-2.0\npragma solidity ^0.6.6;\n\ncontract FileStoreStruct {\n\n    enum Status {Transfer, Withdraw30, Withdraw70, Locked, Unknown}\n    enum StorageType {Unknown, EntireFile, SeperateFile}\n\n    struct FileInfo {\n        uint headStatus; // 0-init 1-stored 2-deleted 3-overtime\n        bytes32 headHash;\n        string headCid;\n        uint256 bodyStatus; // 0-init 1-stored 2-deleted 3-overtime\n        bytes32 bodyHash;\n        string bodyCid;\n        uint256 fileCost;  // the cost of this file to store in sector\n        Status fileCostStatus; // 0-transfer 1-withdraw30 2-withdraw70 3-locked\n        uint256 cDate; // create time\n        uint256 mDate; // modify time\n        uint256 eDate; // expire time\n    }\n\n    struct BaseInfo {\n        bytes32 oriHash;\n        address ownerAddr;\n        uint256 fileSize;\n        string fileExt;\n        bytes32[] miners;\n        address[] dappContractAddrs;\n        uint256 cDate; // create time\n        uint256 mDate; // modify time\n    }\n\n    struct FileStoreInfo {\n        BaseInfo baseInfo;\n        mapping(bytes32 => FileInfo) fileMap; // minerId as key\n    }\n\n    struct MinerInfo {\n        address minerAddr;\n        string publicKey;\n        string peerId;  // for storage p2p\n        string peerAddr; // for storage p2p\n        string proxyAddr; // ralate proxy multiAddr\n    }\n\n\n    struct FileMinerInfo {\n        bytes32 fileHash;\n        string fileCid;\n        bytes32[] minerIds;\n    }\n\n    struct ContractAddr {\n        address contractAddr;\n        address adminAddr;\n        uint256 blockTs; // block timestamp since unix epoch\n    }\n\n    struct ExpireFile {\n        bytes32 oriHash;\n        uint256 index;\n        StorageType storageType;\n    }\n\n    uint256 withdrawThreshold;\n}\n",
+  "sourcePath": "/root/testnet/code/w3fs-genesis-contracts-bridge/contracts/filestore/UtilsContract.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/filestore/UtilsContract.sol",
+    "exportedSymbols": {
+      "FileStoreStruct": [
+        21203
+      ]
+    },
+    "id": 21204,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 21108,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:23:53"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 21203,
+        "linearizedBaseContracts": [
+          21203
+        ],
+        "name": "FileStoreStruct",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "FileStoreStruct.Status",
+            "id": 21114,
+            "members": [
+              {
+                "id": 21109,
+                "name": "Transfer",
+                "nodeType": "EnumValue",
+                "src": "107:8:53"
+              },
+              {
+                "id": 21110,
+                "name": "Withdraw30",
+                "nodeType": "EnumValue",
+                "src": "117:10:53"
+              },
+              {
+                "id": 21111,
+                "name": "Withdraw70",
+                "nodeType": "EnumValue",
+                "src": "129:10:53"
+              },
+              {
+                "id": 21112,
+                "name": "Locked",
+                "nodeType": "EnumValue",
+                "src": "141:6:53"
+              },
+              {
+                "id": 21113,
+                "name": "Unknown",
+                "nodeType": "EnumValue",
+                "src": "149:7:53"
+              }
+            ],
+            "name": "Status",
+            "nodeType": "EnumDefinition",
+            "src": "94:63:53"
+          },
+          {
+            "canonicalName": "FileStoreStruct.StorageType",
+            "id": 21118,
+            "members": [
+              {
+                "id": 21115,
+                "name": "Unknown",
+                "nodeType": "EnumValue",
+                "src": "180:7:53"
+              },
+              {
+                "id": 21116,
+                "name": "EntireFile",
+                "nodeType": "EnumValue",
+                "src": "189:10:53"
+              },
+              {
+                "id": 21117,
+                "name": "SeperateFile",
+                "nodeType": "EnumValue",
+                "src": "201:12:53"
+              }
+            ],
+            "name": "StorageType",
+            "nodeType": "EnumDefinition",
+            "src": "162:52:53"
+          },
+          {
+            "canonicalName": "FileStoreStruct.FileInfo",
+            "id": 21141,
+            "members": [
+              {
+                "constant": false,
+                "id": 21120,
+                "mutability": "mutable",
+                "name": "headStatus",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "246:15:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21119,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "246:4:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21122,
+                "mutability": "mutable",
+                "name": "headHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "311:16:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 21121,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "311:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21124,
+                "mutability": "mutable",
+                "name": "headCid",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "337:14:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 21123,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "337:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21126,
+                "mutability": "mutable",
+                "name": "bodyStatus",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "361:18:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21125,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "361:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21128,
+                "mutability": "mutable",
+                "name": "bodyHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "429:16:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 21127,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "429:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21130,
+                "mutability": "mutable",
+                "name": "bodyCid",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "455:14:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 21129,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "455:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21132,
+                "mutability": "mutable",
+                "name": "fileCost",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "479:16:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21131,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "479:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21134,
+                "mutability": "mutable",
+                "name": "fileCostStatus",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "550:21:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_Status_$21114",
+                  "typeString": "enum FileStoreStruct.Status"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 21133,
+                  "name": "Status",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 21114,
+                  "src": "550:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Status_$21114",
+                    "typeString": "enum FileStoreStruct.Status"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21136,
+                "mutability": "mutable",
+                "name": "cDate",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "630:13:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21135,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "630:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21138,
+                "mutability": "mutable",
+                "name": "mDate",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "668:13:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21137,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "668:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21140,
+                "mutability": "mutable",
+                "name": "eDate",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21141,
+                "src": "706:13:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21139,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "706:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "FileInfo",
+            "nodeType": "StructDefinition",
+            "scope": 21203,
+            "src": "220:521:53",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "FileStoreStruct.BaseInfo",
+            "id": 21160,
+            "members": [
+              {
+                "constant": false,
+                "id": 21143,
+                "mutability": "mutable",
+                "name": "oriHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21160,
+                "src": "773:15:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 21142,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "773:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21145,
+                "mutability": "mutable",
+                "name": "ownerAddr",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21160,
+                "src": "798:17:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 21144,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "798:7:53",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21147,
+                "mutability": "mutable",
+                "name": "fileSize",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21160,
+                "src": "825:16:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21146,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "825:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21149,
+                "mutability": "mutable",
+                "name": "fileExt",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21160,
+                "src": "851:14:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 21148,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "851:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21152,
+                "mutability": "mutable",
+                "name": "miners",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21160,
+                "src": "875:16:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                  "typeString": "bytes32[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 21150,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "875:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 21151,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "875:9:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                    "typeString": "bytes32[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21155,
+                "mutability": "mutable",
+                "name": "dappContractAddrs",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21160,
+                "src": "901:27:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 21153,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "901:7:53",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21154,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "901:9:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                    "typeString": "address[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21157,
+                "mutability": "mutable",
+                "name": "cDate",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21160,
+                "src": "938:13:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21156,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "938:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21159,
+                "mutability": "mutable",
+                "name": "mDate",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21160,
+                "src": "976:13:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21158,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "976:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "BaseInfo",
+            "nodeType": "StructDefinition",
+            "scope": 21203,
+            "src": "747:264:53",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "FileStoreStruct.FileStoreInfo",
+            "id": 21167,
+            "members": [
+              {
+                "constant": false,
+                "id": 21162,
+                "mutability": "mutable",
+                "name": "baseInfo",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21167,
+                "src": "1048:17:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_BaseInfo_$21160_storage_ptr",
+                  "typeString": "struct FileStoreStruct.BaseInfo"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 21161,
+                  "name": "BaseInfo",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 21160,
+                  "src": "1048:8:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_BaseInfo_$21160_storage_ptr",
+                    "typeString": "struct FileStoreStruct.BaseInfo"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21166,
+                "mutability": "mutable",
+                "name": "fileMap",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21167,
+                "src": "1075:36:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_FileInfo_$21141_storage_$",
+                  "typeString": "mapping(bytes32 => struct FileStoreStruct.FileInfo)"
+                },
+                "typeName": {
+                  "id": 21165,
+                  "keyType": {
+                    "id": 21163,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1083:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "1075:28:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_FileInfo_$21141_storage_$",
+                    "typeString": "mapping(bytes32 => struct FileStoreStruct.FileInfo)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 21164,
+                    "name": "FileInfo",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 21141,
+                    "src": "1094:8:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FileInfo_$21141_storage_ptr",
+                      "typeString": "struct FileStoreStruct.FileInfo"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "FileStoreInfo",
+            "nodeType": "StructDefinition",
+            "scope": 21203,
+            "src": "1017:119:53",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "FileStoreStruct.MinerInfo",
+            "id": 21178,
+            "members": [
+              {
+                "constant": false,
+                "id": 21169,
+                "mutability": "mutable",
+                "name": "minerAddr",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21178,
+                "src": "1169:17:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 21168,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1169:7:53",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21171,
+                "mutability": "mutable",
+                "name": "publicKey",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21178,
+                "src": "1196:16:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 21170,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1196:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21173,
+                "mutability": "mutable",
+                "name": "peerId",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21178,
+                "src": "1222:13:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 21172,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1222:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21175,
+                "mutability": "mutable",
+                "name": "peerAddr",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21178,
+                "src": "1265:15:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 21174,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1265:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21177,
+                "mutability": "mutable",
+                "name": "proxyAddr",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21178,
+                "src": "1309:16:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 21176,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1309:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MinerInfo",
+            "nodeType": "StructDefinition",
+            "scope": 21203,
+            "src": "1142:216:53",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "FileStoreStruct.FileMinerInfo",
+            "id": 21186,
+            "members": [
+              {
+                "constant": false,
+                "id": 21180,
+                "mutability": "mutable",
+                "name": "fileHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21186,
+                "src": "1396:16:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 21179,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1396:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21182,
+                "mutability": "mutable",
+                "name": "fileCid",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21186,
+                "src": "1422:14:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 21181,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1422:6:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21185,
+                "mutability": "mutable",
+                "name": "minerIds",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21186,
+                "src": "1446:18:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                  "typeString": "bytes32[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 21183,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1446:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 21184,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "1446:9:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                    "typeString": "bytes32[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "FileMinerInfo",
+            "nodeType": "StructDefinition",
+            "scope": 21203,
+            "src": "1365:106:53",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "FileStoreStruct.ContractAddr",
+            "id": 21193,
+            "members": [
+              {
+                "constant": false,
+                "id": 21188,
+                "mutability": "mutable",
+                "name": "contractAddr",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21193,
+                "src": "1507:20:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 21187,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1507:7:53",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21190,
+                "mutability": "mutable",
+                "name": "adminAddr",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21193,
+                "src": "1537:17:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 21189,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1537:7:53",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21192,
+                "mutability": "mutable",
+                "name": "blockTs",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21193,
+                "src": "1564:15:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21191,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1564:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ContractAddr",
+            "nodeType": "StructDefinition",
+            "scope": 21203,
+            "src": "1477:145:53",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "FileStoreStruct.ExpireFile",
+            "id": 21200,
+            "members": [
+              {
+                "constant": false,
+                "id": 21195,
+                "mutability": "mutable",
+                "name": "oriHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21200,
+                "src": "1656:15:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 21194,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1656:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21197,
+                "mutability": "mutable",
+                "name": "index",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21200,
+                "src": "1681:13:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 21196,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1681:7:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21199,
+                "mutability": "mutable",
+                "name": "storageType",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 21200,
+                "src": "1704:23:53",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_StorageType_$21118",
+                  "typeString": "enum FileStoreStruct.StorageType"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 21198,
+                  "name": "StorageType",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 21118,
+                  "src": "1704:11:53",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_StorageType_$21118",
+                    "typeString": "enum FileStoreStruct.StorageType"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ExpireFile",
+            "nodeType": "StructDefinition",
+            "scope": 21203,
+            "src": "1628:106:53",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 21202,
+            "mutability": "mutable",
+            "name": "withdrawThreshold",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 21203,
+            "src": "1740:25:53",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 21201,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "1740:7:53",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 21204,
+        "src": "62:1706:53"
+      }
+    ],
+    "src": "37:1732:53"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/filestore/UtilsContract.sol",
+      "exportedSymbols": {
+        "FileStoreStruct": [
+          21203
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 21108,
+        "name": "PragmaDirective",
+        "src": "37:23:53"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            21203
+          ],
+          "name": "FileStoreStruct",
+          "scope": 21204
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.Status",
+              "name": "Status"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "Transfer"
+                },
+                "id": 21109,
+                "name": "EnumValue",
+                "src": "107:8:53"
+              },
+              {
+                "attributes": {
+                  "name": "Withdraw30"
+                },
+                "id": 21110,
+                "name": "EnumValue",
+                "src": "117:10:53"
+              },
+              {
+                "attributes": {
+                  "name": "Withdraw70"
+                },
+                "id": 21111,
+                "name": "EnumValue",
+                "src": "129:10:53"
+              },
+              {
+                "attributes": {
+                  "name": "Locked"
+                },
+                "id": 21112,
+                "name": "EnumValue",
+                "src": "141:6:53"
+              },
+              {
+                "attributes": {
+                  "name": "Unknown"
+                },
+                "id": 21113,
+                "name": "EnumValue",
+                "src": "149:7:53"
+              }
+            ],
+            "id": 21114,
+            "name": "EnumDefinition",
+            "src": "94:63:53"
+          },
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.StorageType",
+              "name": "StorageType"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "Unknown"
+                },
+                "id": 21115,
+                "name": "EnumValue",
+                "src": "180:7:53"
+              },
+              {
+                "attributes": {
+                  "name": "EntireFile"
+                },
+                "id": 21116,
+                "name": "EnumValue",
+                "src": "189:10:53"
+              },
+              {
+                "attributes": {
+                  "name": "SeperateFile"
+                },
+                "id": 21117,
+                "name": "EnumValue",
+                "src": "201:12:53"
+              }
+            ],
+            "id": 21118,
+            "name": "EnumDefinition",
+            "src": "162:52:53"
+          },
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.FileInfo",
+              "name": "FileInfo",
+              "scope": 21203,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "headStatus",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 21119,
+                    "name": "ElementaryTypeName",
+                    "src": "246:4:53"
+                  }
+                ],
+                "id": 21120,
+                "name": "VariableDeclaration",
+                "src": "246:15:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "headHash",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 21121,
+                    "name": "ElementaryTypeName",
+                    "src": "311:7:53"
+                  }
+                ],
+                "id": 21122,
+                "name": "VariableDeclaration",
+                "src": "311:16:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "headCid",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 21123,
+                    "name": "ElementaryTypeName",
+                    "src": "337:6:53"
+                  }
+                ],
+                "id": 21124,
+                "name": "VariableDeclaration",
+                "src": "337:14:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "bodyStatus",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21125,
+                    "name": "ElementaryTypeName",
+                    "src": "361:7:53"
+                  }
+                ],
+                "id": 21126,
+                "name": "VariableDeclaration",
+                "src": "361:18:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "bodyHash",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 21127,
+                    "name": "ElementaryTypeName",
+                    "src": "429:7:53"
+                  }
+                ],
+                "id": 21128,
+                "name": "VariableDeclaration",
+                "src": "429:16:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "bodyCid",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 21129,
+                    "name": "ElementaryTypeName",
+                    "src": "455:6:53"
+                  }
+                ],
+                "id": 21130,
+                "name": "VariableDeclaration",
+                "src": "455:14:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "fileCost",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21131,
+                    "name": "ElementaryTypeName",
+                    "src": "479:7:53"
+                  }
+                ],
+                "id": 21132,
+                "name": "VariableDeclaration",
+                "src": "479:16:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "fileCostStatus",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "enum FileStoreStruct.Status",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Status",
+                      "referencedDeclaration": 21114,
+                      "type": "enum FileStoreStruct.Status"
+                    },
+                    "id": 21133,
+                    "name": "UserDefinedTypeName",
+                    "src": "550:6:53"
+                  }
+                ],
+                "id": 21134,
+                "name": "VariableDeclaration",
+                "src": "550:21:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "cDate",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21135,
+                    "name": "ElementaryTypeName",
+                    "src": "630:7:53"
+                  }
+                ],
+                "id": 21136,
+                "name": "VariableDeclaration",
+                "src": "630:13:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "mDate",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21137,
+                    "name": "ElementaryTypeName",
+                    "src": "668:7:53"
+                  }
+                ],
+                "id": 21138,
+                "name": "VariableDeclaration",
+                "src": "668:13:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "eDate",
+                  "overrides": null,
+                  "scope": 21141,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21139,
+                    "name": "ElementaryTypeName",
+                    "src": "706:7:53"
+                  }
+                ],
+                "id": 21140,
+                "name": "VariableDeclaration",
+                "src": "706:13:53"
+              }
+            ],
+            "id": 21141,
+            "name": "StructDefinition",
+            "src": "220:521:53"
+          },
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.BaseInfo",
+              "name": "BaseInfo",
+              "scope": 21203,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "oriHash",
+                  "overrides": null,
+                  "scope": 21160,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 21142,
+                    "name": "ElementaryTypeName",
+                    "src": "773:7:53"
+                  }
+                ],
+                "id": 21143,
+                "name": "VariableDeclaration",
+                "src": "773:15:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "ownerAddr",
+                  "overrides": null,
+                  "scope": 21160,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 21144,
+                    "name": "ElementaryTypeName",
+                    "src": "798:7:53"
+                  }
+                ],
+                "id": 21145,
+                "name": "VariableDeclaration",
+                "src": "798:17:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "fileSize",
+                  "overrides": null,
+                  "scope": 21160,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21146,
+                    "name": "ElementaryTypeName",
+                    "src": "825:7:53"
+                  }
+                ],
+                "id": 21147,
+                "name": "VariableDeclaration",
+                "src": "825:16:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "fileExt",
+                  "overrides": null,
+                  "scope": 21160,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 21148,
+                    "name": "ElementaryTypeName",
+                    "src": "851:6:53"
+                  }
+                ],
+                "id": 21149,
+                "name": "VariableDeclaration",
+                "src": "851:14:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "miners",
+                  "overrides": null,
+                  "scope": 21160,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32[]",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "length": null,
+                      "type": "bytes32[]"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 21150,
+                        "name": "ElementaryTypeName",
+                        "src": "875:7:53"
+                      }
+                    ],
+                    "id": 21151,
+                    "name": "ArrayTypeName",
+                    "src": "875:9:53"
+                  }
+                ],
+                "id": 21152,
+                "name": "VariableDeclaration",
+                "src": "875:16:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "dappContractAddrs",
+                  "overrides": null,
+                  "scope": 21160,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address[]",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "length": null,
+                      "type": "address[]"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 21153,
+                        "name": "ElementaryTypeName",
+                        "src": "901:7:53"
+                      }
+                    ],
+                    "id": 21154,
+                    "name": "ArrayTypeName",
+                    "src": "901:9:53"
+                  }
+                ],
+                "id": 21155,
+                "name": "VariableDeclaration",
+                "src": "901:27:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "cDate",
+                  "overrides": null,
+                  "scope": 21160,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21156,
+                    "name": "ElementaryTypeName",
+                    "src": "938:7:53"
+                  }
+                ],
+                "id": 21157,
+                "name": "VariableDeclaration",
+                "src": "938:13:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "mDate",
+                  "overrides": null,
+                  "scope": 21160,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21158,
+                    "name": "ElementaryTypeName",
+                    "src": "976:7:53"
+                  }
+                ],
+                "id": 21159,
+                "name": "VariableDeclaration",
+                "src": "976:13:53"
+              }
+            ],
+            "id": 21160,
+            "name": "StructDefinition",
+            "src": "747:264:53"
+          },
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.FileStoreInfo",
+              "name": "FileStoreInfo",
+              "scope": 21203,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "baseInfo",
+                  "overrides": null,
+                  "scope": 21167,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "struct FileStoreStruct.BaseInfo",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "BaseInfo",
+                      "referencedDeclaration": 21160,
+                      "type": "struct FileStoreStruct.BaseInfo"
+                    },
+                    "id": 21161,
+                    "name": "UserDefinedTypeName",
+                    "src": "1048:8:53"
+                  }
+                ],
+                "id": 21162,
+                "name": "VariableDeclaration",
+                "src": "1048:17:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "fileMap",
+                  "overrides": null,
+                  "scope": 21167,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "mapping(bytes32 => struct FileStoreStruct.FileInfo)",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "type": "mapping(bytes32 => struct FileStoreStruct.FileInfo)"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 21163,
+                        "name": "ElementaryTypeName",
+                        "src": "1083:7:53"
+                      },
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "FileInfo",
+                          "referencedDeclaration": 21141,
+                          "type": "struct FileStoreStruct.FileInfo"
+                        },
+                        "id": 21164,
+                        "name": "UserDefinedTypeName",
+                        "src": "1094:8:53"
+                      }
+                    ],
+                    "id": 21165,
+                    "name": "Mapping",
+                    "src": "1075:28:53"
+                  }
+                ],
+                "id": 21166,
+                "name": "VariableDeclaration",
+                "src": "1075:36:53"
+              }
+            ],
+            "id": 21167,
+            "name": "StructDefinition",
+            "src": "1017:119:53"
+          },
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.MinerInfo",
+              "name": "MinerInfo",
+              "scope": 21203,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "minerAddr",
+                  "overrides": null,
+                  "scope": 21178,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 21168,
+                    "name": "ElementaryTypeName",
+                    "src": "1169:7:53"
+                  }
+                ],
+                "id": 21169,
+                "name": "VariableDeclaration",
+                "src": "1169:17:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "publicKey",
+                  "overrides": null,
+                  "scope": 21178,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 21170,
+                    "name": "ElementaryTypeName",
+                    "src": "1196:6:53"
+                  }
+                ],
+                "id": 21171,
+                "name": "VariableDeclaration",
+                "src": "1196:16:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "peerId",
+                  "overrides": null,
+                  "scope": 21178,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 21172,
+                    "name": "ElementaryTypeName",
+                    "src": "1222:6:53"
+                  }
+                ],
+                "id": 21173,
+                "name": "VariableDeclaration",
+                "src": "1222:13:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "peerAddr",
+                  "overrides": null,
+                  "scope": 21178,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 21174,
+                    "name": "ElementaryTypeName",
+                    "src": "1265:6:53"
+                  }
+                ],
+                "id": 21175,
+                "name": "VariableDeclaration",
+                "src": "1265:15:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "proxyAddr",
+                  "overrides": null,
+                  "scope": 21178,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 21176,
+                    "name": "ElementaryTypeName",
+                    "src": "1309:6:53"
+                  }
+                ],
+                "id": 21177,
+                "name": "VariableDeclaration",
+                "src": "1309:16:53"
+              }
+            ],
+            "id": 21178,
+            "name": "StructDefinition",
+            "src": "1142:216:53"
+          },
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.FileMinerInfo",
+              "name": "FileMinerInfo",
+              "scope": 21203,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "fileHash",
+                  "overrides": null,
+                  "scope": 21186,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 21179,
+                    "name": "ElementaryTypeName",
+                    "src": "1396:7:53"
+                  }
+                ],
+                "id": 21180,
+                "name": "VariableDeclaration",
+                "src": "1396:16:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "fileCid",
+                  "overrides": null,
+                  "scope": 21186,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 21181,
+                    "name": "ElementaryTypeName",
+                    "src": "1422:6:53"
+                  }
+                ],
+                "id": 21182,
+                "name": "VariableDeclaration",
+                "src": "1422:14:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "minerIds",
+                  "overrides": null,
+                  "scope": 21186,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32[]",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "length": null,
+                      "type": "bytes32[]"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 21183,
+                        "name": "ElementaryTypeName",
+                        "src": "1446:7:53"
+                      }
+                    ],
+                    "id": 21184,
+                    "name": "ArrayTypeName",
+                    "src": "1446:9:53"
+                  }
+                ],
+                "id": 21185,
+                "name": "VariableDeclaration",
+                "src": "1446:18:53"
+              }
+            ],
+            "id": 21186,
+            "name": "StructDefinition",
+            "src": "1365:106:53"
+          },
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.ContractAddr",
+              "name": "ContractAddr",
+              "scope": 21203,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "contractAddr",
+                  "overrides": null,
+                  "scope": 21193,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 21187,
+                    "name": "ElementaryTypeName",
+                    "src": "1507:7:53"
+                  }
+                ],
+                "id": 21188,
+                "name": "VariableDeclaration",
+                "src": "1507:20:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "adminAddr",
+                  "overrides": null,
+                  "scope": 21193,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 21189,
+                    "name": "ElementaryTypeName",
+                    "src": "1537:7:53"
+                  }
+                ],
+                "id": 21190,
+                "name": "VariableDeclaration",
+                "src": "1537:17:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "blockTs",
+                  "overrides": null,
+                  "scope": 21193,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21191,
+                    "name": "ElementaryTypeName",
+                    "src": "1564:7:53"
+                  }
+                ],
+                "id": 21192,
+                "name": "VariableDeclaration",
+                "src": "1564:15:53"
+              }
+            ],
+            "id": 21193,
+            "name": "StructDefinition",
+            "src": "1477:145:53"
+          },
+          {
+            "attributes": {
+              "canonicalName": "FileStoreStruct.ExpireFile",
+              "name": "ExpireFile",
+              "scope": 21203,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "oriHash",
+                  "overrides": null,
+                  "scope": 21200,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 21194,
+                    "name": "ElementaryTypeName",
+                    "src": "1656:7:53"
+                  }
+                ],
+                "id": 21195,
+                "name": "VariableDeclaration",
+                "src": "1656:15:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "index",
+                  "overrides": null,
+                  "scope": 21200,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 21196,
+                    "name": "ElementaryTypeName",
+                    "src": "1681:7:53"
+                  }
+                ],
+                "id": 21197,
+                "name": "VariableDeclaration",
+                "src": "1681:13:53"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "storageType",
+                  "overrides": null,
+                  "scope": 21200,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "enum FileStoreStruct.StorageType",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "StorageType",
+                      "referencedDeclaration": 21118,
+                      "type": "enum FileStoreStruct.StorageType"
+                    },
+                    "id": 21198,
+                    "name": "UserDefinedTypeName",
+                    "src": "1704:11:53"
+                  }
+                ],
+                "id": 21199,
+                "name": "VariableDeclaration",
+                "src": "1704:23:53"
+              }
+            ],
+            "id": 21200,
+            "name": "StructDefinition",
+            "src": "1628:106:53"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "withdrawThreshold",
+              "overrides": null,
+              "scope": 21203,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 21201,
+                "name": "ElementaryTypeName",
+                "src": "1740:7:53"
+              }
+            ],
+            "id": 21202,
+            "name": "VariableDeclaration",
+            "src": "1740:25:53"
+          }
+        ],
+        "id": 21203,
+        "name": "ContractDefinition",
+        "src": "62:1706:53"
+      }
+    ],
+    "id": 21204,
+    "name": "SourceUnit",
+    "src": "37:1732:53"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-11-17T02:32:22.570Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

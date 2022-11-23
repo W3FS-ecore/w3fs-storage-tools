@@ -1,0 +1,322 @@
+{
+  "contractName": "IChildToken",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "depositData",
+          "type": "bytes"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"depositData\",\"type\":\"bytes\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/mrc20/IChildToken.sol\":\"IChildToken\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/mrc20/IChildToken.sol\":{\"keccak256\":\"0x0daa27038b5143761eff366e3f795295f20eb46cc6092617fcecb94a9694636a\",\"urls\":[\"bzz-raw://bc9cc848d99036a8beb877b33e1293624ec5a46dd771aefb6c61aea14a2dc4d1\",\"dweb:/ipfs/QmdxWAw51NEvFb5HcnEgQENsLyPzgg61REW9iqRzq14dD5\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity 0.6.6;\n\ninterface IChildToken {\n    function deposit(address user, bytes calldata depositData) external;\n}\n",
+  "sourcePath": "/root/testnet/code/w3fs-genesis-contracts-bridge/contracts/mrc20/IChildToken.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/mrc20/IChildToken.sol",
+    "exportedSymbols": {
+      "IChildToken": [
+        21878
+      ]
+    },
+    "id": 21879,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 21870,
+        "literals": [
+          "solidity",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:22:59"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 21878,
+        "linearizedBaseContracts": [
+          21878
+        ],
+        "name": "IChildToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "cf2c52cb",
+            "id": 21877,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deposit",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 21875,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21872,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 21877,
+                  "src": "69:12:59",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21871,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "69:7:59",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 21874,
+                  "mutability": "mutable",
+                  "name": "depositData",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 21877,
+                  "src": "83:26:59",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 21873,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "83:5:59",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "68:42:59"
+            },
+            "returnParameters": {
+              "id": 21876,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "119:0:59"
+            },
+            "scope": 21878,
+            "src": "52:68:59",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 21879,
+        "src": "24:98:59"
+      }
+    ],
+    "src": "0:123:59"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/mrc20/IChildToken.sol",
+      "exportedSymbols": {
+        "IChildToken": [
+          21878
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 21870,
+        "name": "PragmaDirective",
+        "src": "0:22:59"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            21878
+          ],
+          "name": "IChildToken",
+          "scope": 21879
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "cf2c52cb",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "deposit",
+              "overrides": null,
+              "scope": 21878,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "user",
+                      "overrides": null,
+                      "scope": 21877,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 21871,
+                        "name": "ElementaryTypeName",
+                        "src": "69:7:59"
+                      }
+                    ],
+                    "id": 21872,
+                    "name": "VariableDeclaration",
+                    "src": "69:12:59"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "depositData",
+                      "overrides": null,
+                      "scope": 21877,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "bytes",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes"
+                        },
+                        "id": 21873,
+                        "name": "ElementaryTypeName",
+                        "src": "83:5:59"
+                      }
+                    ],
+                    "id": 21874,
+                    "name": "VariableDeclaration",
+                    "src": "83:26:59"
+                  }
+                ],
+                "id": 21875,
+                "name": "ParameterList",
+                "src": "68:42:59"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 21876,
+                "name": "ParameterList",
+                "src": "119:0:59"
+              }
+            ],
+            "id": 21877,
+            "name": "FunctionDefinition",
+            "src": "52:68:59"
+          }
+        ],
+        "id": 21878,
+        "name": "ContractDefinition",
+        "src": "24:98:59"
+      }
+    ],
+    "id": 21879,
+    "name": "SourceUnit",
+    "src": "0:123:59"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-11-17T02:32:22.610Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

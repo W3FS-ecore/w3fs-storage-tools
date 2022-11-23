@@ -1,0 +1,328 @@
+{
+  "contractName": "ChainIdMixin",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "CHAINID",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "networkId",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"CHAINID\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"networkId\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/mrc20/ChainIdMixin.sol\":\"ChainIdMixin\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/mrc20/ChainIdMixin.sol\":{\"keccak256\":\"0x0c10d4b5da1967dfd1ba8853ddb6d9d8ee0ebbb0bf64ee376c491ef2eab7fc05\",\"urls\":[\"bzz-raw://3f4076c718e42ad4724ef23a1b10626e77b2d2682396caaa03edeecd215b1ba7\",\"dweb:/ipfs/QmYadd9PeViNHRWQAsQrfSt2kq1Whjv5JNEjecw3scFBu2\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610163806100206000396000f3fe608060405234801561001057600080fd5b5060043610610052577c010000000000000000000000000000000000000000000000000000000060003504639025e64c8114610057578063cc79f97b146100d4575b600080fd5b61005f6100ee565b6040805160208082528351818301528351919283929083019185019080838360005b83811015610099578181015183820152602001610081565b50505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc610127565b60408051918252519081900360200190f35b6040518060400160405280600281526020017f3e7f00000000000000000000000000000000000000000000000000000000000081525081565b613e7f8156fea2646970667358221220589bfb9bd2d72e07f556dc3bf12bcd3213221c2da1ba324321ea58e5dac7766e64736f6c63430006060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610052577c010000000000000000000000000000000000000000000000000000000060003504639025e64c8114610057578063cc79f97b146100d4575b600080fd5b61005f6100ee565b6040805160208082528351818301528351919283929083019185019080838360005b83811015610099578181015183820152602001610081565b50505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc610127565b60408051918252519081900360200190f35b6040518060400160405280600281526020017f3e7f00000000000000000000000000000000000000000000000000000000000081525081565b613e7f8156fea2646970667358221220589bfb9bd2d72e07f556dc3bf12bcd3213221c2da1ba324321ea58e5dac7766e64736f6c63430006060033",
+  "immutableReferences": {},
+  "sourceMap": "25:115:55:-:0;;;;5:9:-1;2:2;;;27:1;24;17:12;2:2;25:115:55;;;;;;;",
+  "deployedSourceMap": "25:115:55:-:0;;;;5:9:-1;2:2;;;27:1;24;17:12;2:2;25:115:55;;;;;;;;;;;;;;;;;;;;;12:1:-1;9;2:12;51:43:55;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:100:-1;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;51:43:55;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;98:39;;;:::i;:::-;;;;;;;;;;;;;;;;51:43;;;;;;;;;;;;;;;;;;;:::o;98:39::-;132:5;98:39;:::o",
+  "source": "pragma solidity ^0.6.6;\n\ncontract ChainIdMixin {\n  bytes constant public networkId = hex\"3E7F\";\n  uint256 constant public CHAINID = 15999;\n}\n",
+  "sourcePath": "/root/testnet/code/w3fs-genesis-contracts-bridge/contracts/mrc20/ChainIdMixin.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/mrc20/ChainIdMixin.sol",
+    "exportedSymbols": {
+      "ChainIdMixin": [
+        21416
+      ]
+    },
+    "id": 21417,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 21409,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:55"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 21416,
+        "linearizedBaseContracts": [
+          21416
+        ],
+        "name": "ChainIdMixin",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "functionSelector": "9025e64c",
+            "id": 21412,
+            "mutability": "constant",
+            "name": "networkId",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 21416,
+            "src": "51:43:55",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes_memory_ptr",
+              "typeString": "bytes"
+            },
+            "typeName": {
+              "id": 21410,
+              "name": "bytes",
+              "nodeType": "ElementaryTypeName",
+              "src": "51:5:55",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes_storage_ptr",
+                "typeString": "bytes"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3e7f",
+              "id": 21411,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "85:9:55",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_205c48b93135971269ec6af304d5de988f32a04732235a5ffd4e1532a5182328",
+                "typeString": "literal_string \">\""
+              },
+              "value": ">"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "cc79f97b",
+            "id": 21415,
+            "mutability": "constant",
+            "name": "CHAINID",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 21416,
+            "src": "98:39:55",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 21413,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "98:7:55",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3135393939",
+              "id": 21414,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "132:5:55",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_15999_by_1",
+                "typeString": "int_const 15999"
+              },
+              "value": "15999"
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 21417,
+        "src": "25:115:55"
+      }
+    ],
+    "src": "0:141:55"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/mrc20/ChainIdMixin.sol",
+      "exportedSymbols": {
+        "ChainIdMixin": [
+          21416
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 21409,
+        "name": "PragmaDirective",
+        "src": "0:23:55"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            21416
+          ],
+          "name": "ChainIdMixin",
+          "scope": 21417
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "9025e64c",
+              "mutability": "constant",
+              "name": "networkId",
+              "overrides": null,
+              "scope": 21416,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bytes",
+                  "type": "bytes"
+                },
+                "id": 21410,
+                "name": "ElementaryTypeName",
+                "src": "51:5:55"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "3e7f",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "string",
+                  "type": "literal_string \">\"",
+                  "value": ">"
+                },
+                "id": 21411,
+                "name": "Literal",
+                "src": "85:9:55"
+              }
+            ],
+            "id": 21412,
+            "name": "VariableDeclaration",
+            "src": "51:43:55"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "cc79f97b",
+              "mutability": "constant",
+              "name": "CHAINID",
+              "overrides": null,
+              "scope": 21416,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 21413,
+                "name": "ElementaryTypeName",
+                "src": "98:7:55"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "3135393939",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 15999",
+                  "value": "15999"
+                },
+                "id": 21414,
+                "name": "Literal",
+                "src": "132:5:55"
+              }
+            ],
+            "id": 21415,
+            "name": "VariableDeclaration",
+            "src": "98:39:55"
+          }
+        ],
+        "id": 21416,
+        "name": "ContractDefinition",
+        "src": "25:115:55"
+      }
+    ],
+    "id": 21417,
+    "name": "SourceUnit",
+    "src": "0:141:55"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-11-17T02:32:22.584Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

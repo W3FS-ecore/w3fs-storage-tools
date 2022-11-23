@@ -1,0 +1,17 @@
+#!/bin/sh
+CRTDIR=$(cd `dirname $0`; pwd)
+pname=test.sh
+echo $CRTDIR
+echo "kill ${pname}"
+count=`ps -ef | grep ${pname} | grep -v "grep" | wc -l`
+if [ $count -gt 0 ]; then
+    echo "准备停止${pname}...."
+    ps -ef | grep ${pname} | grep -v "grep" | awk '{print $2}' | xargs kill -9 
+    sleep 2
+    echo "${pname}已停止"
+else
+    echo "${pname}已处理停止状态，无需停止!"
+fi
+
+echo "检查进程"
+ps -ef | grep ${pname} | grep -v "grep" | awk '{print $2}'

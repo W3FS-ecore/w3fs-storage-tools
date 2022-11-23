@@ -1,0 +1,502 @@
+{
+  "contractName": "FileStoreProxy",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        }
+      ],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bool",
+          "name": "initialized",
+          "type": "bool"
+        }
+      ],
+      "name": "UpgradedIsInitialized",
+      "type": "event"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback",
+      "payable": true
+    },
+    {
+      "inputs": [],
+      "name": "getInitialized",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isinitialized_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "implementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "implementation_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newImplementation",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "updateAndCall",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function",
+      "payable": true
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive",
+      "payable": true
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\"}],\"name\":\"Upgraded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bool\",\"name\":\"initialized\",\"type\":\"bool\"}],\"name\":\"UpgradedIsInitialized\",\"type\":\"event\"},{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[],\"name\":\"getInitialized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isinitialized_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"implementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"implementation_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newImplementation\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"updateAndCall\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/filestore/FileStoreProxy.sol\":\"FileStoreProxy\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/proxy/Proxy.sol\":{\"keccak256\":\"0x0414d54056b3d8f9102ae1142264e9361408397878148203ab7a25cbf6248f08\",\"urls\":[\"bzz-raw://ebdc01639f69030c754dc3462d5f437c4644164465066187e320f524579fbede\",\"dweb:/ipfs/QmZZhoPYagwu4MoJMAg26Y6Nfj4d9HJzUnvrMNsbo9ZorM\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea\",\"urls\":[\"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c\",\"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN\"]},\"project:/contracts/common/proxy/UpgradesAvailableProxy.sol\":{\"keccak256\":\"0x6049896dfdf853ebbf7e0a9f87b26cd9bde11752afcd31428f4917f32aa42930\",\"urls\":[\"bzz-raw://4a6b439e6d0fda5345ecd12f70b693b5b707f7d68e2eb94dc241c8aa39cb6a6d\",\"dweb:/ipfs/QmWwkUL9msHaWAd1wFSebMuqP6ybq3g1mFBprqmAx7NLoL\"]},\"project:/contracts/filestore/FileStoreProxy.sol\":{\"keccak256\":\"0x9f0860da109168359499b95b345ee34923f95f36c1e9cf06ab306c7d4eda27d5\",\"urls\":[\"bzz-raw://10d14e53a329c4b0340ee323d5193166f0bd81147e92221795d44cca6021b02f\",\"dweb:/ipfs/QmUm3aVdz3phJmSCcMBvZcKc2r79mFLDWmcTCKKigxRFfW\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506109e7806100206000396000f3fe608060405260043610610075577c010000000000000000000000000000000000000000000000000000000060003504635c60da1b811461008c578063893d20e8146100bd578063c4d66de8146100d2578063d88ca2c814610105578063ee89dab4146101bb578063f2fde38b146101e457610084565b3661008457610082610217565b005b610082610217565b34801561009857600080fd5b506100a1610231565b60408051600160a060020a039092168252519081900360200190f35b3480156100c957600080fd5b506100a16102a5565b3480156100de57600080fd5b50610082600480360360208110156100f557600080fd5b5035600160a060020a0316610314565b6100826004803603604081101561011b57600080fd5b600160a060020a03823516919081019060408101602082013564010000000081111561014657600080fd5b82018360208201111561015857600080fd5b8035906020019184600183028401116401000000008311171561017a57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929550610377945050505050565b3480156101c757600080fd5b506101d061045b565b604080519115158252519081900360200190f35b3480156101f057600080fd5b506100826004803603602081101561020757600080fd5b5035600160a060020a03166104ca565b61021f61022f565b61022f61022a610582565b6105a7565b565b600061023b6105cb565b600160a060020a031661024c6105cf565b600160a060020a031614610298576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b6102a0610582565b905090565b60006102af6105cb565b600160a060020a03166102c06105cf565b600160a060020a03161461030c576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b6102a06105cf565b600061031e6105f4565b905080156103605760405160e560020a62461bcd0281526004018080602001828103825260238152602001806108ec6023913960400191505060405180910390fd5b61036a6001610619565b6103738261063d565b5050565b61037f6105cb565b600160a060020a03166103906105cf565b600160a060020a0316146103dc576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b604080517f656970313936372e70726f78792e696d706c656d656e746174696f6e000000008152905190819003601c0190207f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc6000199091011461043c57fe5b61044582610661565b8051156103735761045682826106a1565b505050565b60006104656105cb565b600160a060020a03166104766105cf565b600160a060020a0316146104c2576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b6102a06105f4565b6104d26105cb565b600160a060020a03166104e36105cf565b600160a060020a03161461052f576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b6105388161063d565b80600160a060020a031661054a6105cf565b600160a060020a03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a350565b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc5490565b3660008037600080366000845af43d6000803e8080156105c6573d6000f35b3d6000fd5b3390565b7fb2011649e23991fd5b1fbd5b12a4d17f46b2c6148cce69f6f1b3a24fef79a94b5490565b7f2da5462cfc5aefc74791833662ba61cd4cfeda3e1851cce5159de5f968d9d64d5490565b7f2da5462cfc5aefc74791833662ba61cd4cfeda3e1851cce5159de5f968d9d64d55565b7fb2011649e23991fd5b1fbd5b12a4d17f46b2c6148cce69f6f1b3a24fef79a94b55565b61066a816106cd565b604051600160a060020a038216907fbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b90600090a250565b60606106c6838360405180606001604052806027815260200161092f60279139610738565b9392505050565b6106d68161083e565b6107145760405160e560020a62461bcd0281526004018080602001828103825260368152602001806109566036913960400191505060405180910390fd5b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc55565b60606107438461083e565b6107815760405160e560020a62461bcd02815260040180806020018281038252602681526020018061098c6026913960400191505060405180910390fd5b6000606085600160a060020a0316856040518082805190602001908083835b602083106107bf5780518252601f1990920191602091820191016107a0565b6001836020036101000a038019825116818451168082178552505050505050905001915050600060405180830381855af49150503d806000811461081f576040519150601f19603f3d011682016040523d82523d6000602084013e610824565b606091505b5091509150610834828286610844565b9695505050505050565b3b151590565b606083156108535750816106c6565b8251156108635782518084602001fd5b8160405160e560020a62461bcd0281526004018080602001828103825283818151815260200191508051906020019080838360005b838110156108b0578181015183820152602001610898565b50505050905090810190601f1680156108dd5780820380516001836020036101000a031916815260200191505b509250505060405180910390fdfe54686520636f6e747261637420697320616c726561647920696e697469616c697a65644f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572416464726573733a206c6f772d6c6576656c2064656c65676174652063616c6c206661696c65645570677261646561626c6550726f78793a206e657720696d706c656d656e746174696f6e206973206e6f74206120636f6e7472616374416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6e7472616374a2646970667358221220317f17b0236a59d90c50928686f23c18ba551b11bcaae3b062b124faf7301b7264736f6c63430006060033",
+  "deployedBytecode": "0x608060405260043610610075577c010000000000000000000000000000000000000000000000000000000060003504635c60da1b811461008c578063893d20e8146100bd578063c4d66de8146100d2578063d88ca2c814610105578063ee89dab4146101bb578063f2fde38b146101e457610084565b3661008457610082610217565b005b610082610217565b34801561009857600080fd5b506100a1610231565b60408051600160a060020a039092168252519081900360200190f35b3480156100c957600080fd5b506100a16102a5565b3480156100de57600080fd5b50610082600480360360208110156100f557600080fd5b5035600160a060020a0316610314565b6100826004803603604081101561011b57600080fd5b600160a060020a03823516919081019060408101602082013564010000000081111561014657600080fd5b82018360208201111561015857600080fd5b8035906020019184600183028401116401000000008311171561017a57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929550610377945050505050565b3480156101c757600080fd5b506101d061045b565b604080519115158252519081900360200190f35b3480156101f057600080fd5b506100826004803603602081101561020757600080fd5b5035600160a060020a03166104ca565b61021f61022f565b61022f61022a610582565b6105a7565b565b600061023b6105cb565b600160a060020a031661024c6105cf565b600160a060020a031614610298576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b6102a0610582565b905090565b60006102af6105cb565b600160a060020a03166102c06105cf565b600160a060020a03161461030c576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b6102a06105cf565b600061031e6105f4565b905080156103605760405160e560020a62461bcd0281526004018080602001828103825260238152602001806108ec6023913960400191505060405180910390fd5b61036a6001610619565b6103738261063d565b5050565b61037f6105cb565b600160a060020a03166103906105cf565b600160a060020a0316146103dc576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b604080517f656970313936372e70726f78792e696d706c656d656e746174696f6e000000008152905190819003601c0190207f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc6000199091011461043c57fe5b61044582610661565b8051156103735761045682826106a1565b505050565b60006104656105cb565b600160a060020a03166104766105cf565b600160a060020a0316146104c2576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b6102a06105f4565b6104d26105cb565b600160a060020a03166104e36105cf565b600160a060020a03161461052f576040805160e560020a62461bcd028152602060048201819052602482015260008051602061090f833981519152604482015290519081900360640190fd5b6105388161063d565b80600160a060020a031661054a6105cf565b600160a060020a03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a350565b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc5490565b3660008037600080366000845af43d6000803e8080156105c6573d6000f35b3d6000fd5b3390565b7fb2011649e23991fd5b1fbd5b12a4d17f46b2c6148cce69f6f1b3a24fef79a94b5490565b7f2da5462cfc5aefc74791833662ba61cd4cfeda3e1851cce5159de5f968d9d64d5490565b7f2da5462cfc5aefc74791833662ba61cd4cfeda3e1851cce5159de5f968d9d64d55565b7fb2011649e23991fd5b1fbd5b12a4d17f46b2c6148cce69f6f1b3a24fef79a94b55565b61066a816106cd565b604051600160a060020a038216907fbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b90600090a250565b60606106c6838360405180606001604052806027815260200161092f60279139610738565b9392505050565b6106d68161083e565b6107145760405160e560020a62461bcd0281526004018080602001828103825260368152602001806109566036913960400191505060405180910390fd5b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc55565b60606107438461083e565b6107815760405160e560020a62461bcd02815260040180806020018281038252602681526020018061098c6026913960400191505060405180910390fd5b6000606085600160a060020a0316856040518082805190602001908083835b602083106107bf5780518252601f1990920191602091820191016107a0565b6001836020036101000a038019825116818451168082178552505050505050905001915050600060405180830381855af49150503d806000811461081f576040519150601f19603f3d011682016040523d82523d6000602084013e610824565b606091505b5091509150610834828286610844565b9695505050505050565b3b151590565b606083156108535750816106c6565b8251156108635782518084602001fd5b8160405160e560020a62461bcd0281526004018080602001828103825283818151815260200191508051906020019080838360005b838110156108b0578181015183820152602001610898565b50505050905090810190601f1680156108dd5780820380516001836020036101000a031916815260200191505b509250505060405180910390fdfe54686520636f6e747261637420697320616c726561647920696e697469616c697a65644f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572416464726573733a206c6f772d6c6576656c2064656c65676174652063616c6c206661696c65645570677261646561626c6550726f78793a206e657720696d706c656d656e746174696f6e206973206e6f74206120636f6e7472616374416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6e7472616374a2646970667358221220317f17b0236a59d90c50928686f23c18ba551b11bcaae3b062b124faf7301b7264736f6c63430006060033",
+  "immutableReferences": {},
+  "sourceMap": "109:105:51:-:0;;;165:47;5:9:-1;2:2;;;27:1;24;17:12;2:2;165:47:51;109:105;;;;;;",
+  "deployedSourceMap": "109:105:51:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2843:11:7;:9;:11::i;:::-;109:105:51;;2619:11:7;:9;:11::i;3817:136:43:-;;5:9:-1;2:2;;;27:1;24;17:12;2:2;3817:136:43;;;:::i;:::-;;;;-1:-1:-1;;;;;3817:136:43;;;;;;;;;;;;;;4506:111;;5:9:-1;2:2;;;27:1;24;17:12;2:2;4506:111:43;;;:::i;1535:226::-;;5:9:-1;2:2;;;27:1;24;17:12;2:2;1535:226:43;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;-1:-1;1535:226:43;-1:-1:-1;;;;;1535:226:43;;:::i;3084:380::-;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;-1:-1;;;;;3084:380:43;;;;;;;;;;;;;;;27:11:-1;11:28;;8:2;;;52:1;49;42:12;8:2;3084:380:43;;41:9:-1;34:4;18:14;14:25;11:40;8:2;;;64:1;61;54:12;8:2;3084:380:43;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;3084:380:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;3084:380:43;;-1:-1:-1;3084:380:43;;-1:-1:-1;;;;;3084:380:43:i;4185:136::-;;5:9:-1;2:2;;;27:1;24;17:12;2:2;4185:136:43;;;:::i;:::-;;;;;;;;;;;;;;;;;;4624:161;;5:9:-1;2:2;;;27:1;24;17:12;2:2;4624:161:43;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;-1:-1;4624:161:43;-1:-1:-1;;;;;4624:161:43;;:::i;2265:110:7:-;2313:17;:15;:17::i;:::-;2340:28;2350:17;:15;:17::i;:::-;2340:9;:28::i;:::-;2265:110::o;3817:136:43:-;3876:23;2095:12;:10;:12::i;:::-;-1:-1:-1;;;;;2080:27:43;:11;:9;:11::i;:::-;-1:-1:-1;;;;;2080:27:43;;2072:72;;;;;-1:-1:-1;;;;;2072:72:43;;;;;;;;;;;;;-1:-1:-1;;;;;;;;;;;2072:72:43;;;;;;;;;;;;;;;3929:17:::1;:15;:17::i;:::-;3911:35;;3817:136:::0;:::o;4506:111::-;4564:14;2095:12;:10;:12::i;:::-;-1:-1:-1;;;;;2080:27:43;:11;:9;:11::i;:::-;-1:-1:-1;;;;;2080:27:43;;2072:72;;;;;-1:-1:-1;;;;;2072:72:43;;;;;;;;;;;;;-1:-1:-1;;;;;;;;;;;2072:72:43;;;;;;;;;;;;;;;4599:11:::1;:9;:11::i;1535:226::-:0;1586:18;1607:17;:15;:17::i;:::-;1586:38;;1643:13;1642:14;1634:62;;;;-1:-1:-1;;;;;1634:62:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1706:23;1724:4;1706:17;:23::i;:::-;1739:15;1749:4;1739:9;:15::i;:::-;1535:226;;:::o;3084:380::-;2095:12;:10;:12::i;:::-;-1:-1:-1;;;;;2080:27:43;:11;:9;:11::i;:::-;-1:-1:-1;;;;;2080:27:43;;2072:72;;;;;-1:-1:-1;;;;;2072:72:43;;;;;;;;;;;;;-1:-1:-1;;;;;;;;;;;2072:72:43;;;;;;;;;;;;;;;3262:41:::1;::::0;;::::1;::::0;;;;;;;;::::1;::::0;;;2622:66:::1;-1:-1:-1::0;;3254:54:43;;;3222:87:::1;3215:95;;;;3320:29;3331:17;3320:10;:29::i;:::-;3363:11:::0;;:15;3359:99:::1;;3394:53;3423:17;3442:4;3394:28;:53::i;:::-;;3084:380:::0;;:::o;4185:136::-;4249:19;2095:12;:10;:12::i;:::-;-1:-1:-1;;;;;2080:27:43;:11;:9;:11::i;:::-;-1:-1:-1;;;;;2080:27:43;;2072:72;;;;;-1:-1:-1;;;;;2072:72:43;;;;;;;;;;;;;-1:-1:-1;;;;;;;;;;;2072:72:43;;;;;;;;;;;;;;;4297:17:::1;:15;:17::i;4624:161::-:0;2095:12;:10;:12::i;:::-;-1:-1:-1;;;;;2080:27:43;:11;:9;:11::i;:::-;-1:-1:-1;;;;;2080:27:43;;2072:72;;;;;-1:-1:-1;;;;;2072:72:43;;;;;;;;;;;;;-1:-1:-1;;;;;;;;;;;2072:72:43;;;;;;;;;;;;;;;4701:19:::1;4711:8;4701:9;:19::i;:::-;4769:8;-1:-1:-1::0;;;;;4735:43:43::1;4756:11;:9;:11::i;:::-;-1:-1:-1::0;;;;;4735:43:43::1;;;;;;;;;;;4624:161:::0;:::o;3542:250::-;2622:66;3765:11;;3743:43::o;891:895:7:-;1285:14;1282:1;1279;1266:34;1499:1;1496;1480:14;1477:1;1461:14;1454:5;1441:60;1575:16;1572:1;1569;1554:38;1613:6;1680:38;;;;1751:16;1748:1;1741:27;1680:38;1699:16;1696:1;1689:27;1769:104:43;1856:10;1769:104;:::o;4328:172::-;3010:66;4473:11;;4450:44::o;3960:199::-;2824:66;4132:11;;4101:52::o;5522:171::-;2824:66;5652:25;5638:49::o;5699:148::-;3010:66;5811:20;5797:44::o;4905:160::-;4979:37;4998:17;4979:18;:37::i;:::-;5031:27;;-1:-1:-1;;;;;5031:27:43;;;;;;;;4905:160;:::o;6284:198:16:-;6367:12;6398:77;6419:6;6427:4;6398:77;;;;;;;;;;;;;;;;;:20;:77::i;:::-;6391:84;6284:198;-1:-1:-1;;;6284:198:16:o;5156:360:43:-;5237:37;5256:17;5237:18;:37::i;:::-;5229:104;;;;-1:-1:-1;;;;;5229:104:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2622:66;5469:31;5455:55::o;6668:417:16:-;6779:12;6811:18;6822:6;6811:10;:18::i;:::-;6803:69;;;;-1:-1:-1;;;;;6803:69:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6943:12;6957:23;6984:6;-1:-1:-1;;;;;6984:19:16;7004:4;6984:25;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;6984:25:16;;;;;;;;;;;;;;;;;;;;;;;12:1:-1;19;14:27;;;;67:4;61:11;56:16;;134:4;130:9;123:4;105:16;101:27;97:43;94:1;90:51;84:4;77:65;157:16;154:1;147:27;211:16;208:1;201:4;198:1;194:12;179:49;5:228;;14:27;32:4;27:9;;5:228;;6942:67:16;;;;7026:52;7044:7;7053:10;7065:12;7026:17;:52::i;:::-;7019:59;6668:417;-1:-1:-1;;;;;;6668:417:16:o;726:413::-;1086:20;1124:8;;;726:413::o;7091:725::-;7206:12;7234:7;7230:580;;;-1:-1:-1;7264:10:16;7257:17;;7230:580;7375:17;;:21;7371:429;;7633:10;7627:17;7693:15;7680:10;7676:2;7672:19;7665:44;7582:145;7772:12;7765:20;;-1:-1:-1;;;;;7765:20:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;7765:20:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "source": "pragma solidity ^0.6.6;\n\nimport {UpgradesAvailableProxy} from \"../common/proxy/UpgradesAvailableProxy.sol\";\n\ncontract FileStoreProxy is UpgradesAvailableProxy {\n    constructor() public UpgradesAvailableProxy(){}\n}\n",
+  "sourcePath": "/root/testnet/code/w3fs-genesis-contracts-bridge/contracts/filestore/FileStoreProxy.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/filestore/FileStoreProxy.sol",
+    "exportedSymbols": {
+      "FileStoreProxy": [
+        18697
+      ]
+    },
+    "id": 18698,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 18686,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:51"
+      },
+      {
+        "absolutePath": "project:/contracts/common/proxy/UpgradesAvailableProxy.sol",
+        "file": "../common/proxy/UpgradesAvailableProxy.sol",
+        "id": 18688,
+        "nodeType": "ImportDirective",
+        "scope": 18698,
+        "sourceUnit": 15482,
+        "src": "25:82:51",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 18687,
+              "name": "UpgradesAvailableProxy",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "33:22:51",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 18689,
+              "name": "UpgradesAvailableProxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15481,
+              "src": "136:22:51",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UpgradesAvailableProxy_$15481",
+                "typeString": "contract UpgradesAvailableProxy"
+              }
+            },
+            "id": 18690,
+            "nodeType": "InheritanceSpecifier",
+            "src": "136:22:51"
+          }
+        ],
+        "contractDependencies": [
+          1011,
+          15481
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 18697,
+        "linearizedBaseContracts": [
+          18697,
+          15481,
+          1011
+        ],
+        "name": "FileStoreProxy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 18695,
+              "nodeType": "Block",
+              "src": "210:2:51",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 18696,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 18693,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 18692,
+                  "name": "UpgradesAvailableProxy",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 15481,
+                  "src": "186:22:51",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_UpgradesAvailableProxy_$15481_$",
+                    "typeString": "type(contract UpgradesAvailableProxy)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "186:24:51"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 18691,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "176:2:51"
+            },
+            "returnParameters": {
+              "id": 18694,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "210:0:51"
+            },
+            "scope": 18697,
+            "src": "165:47:51",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 18698,
+        "src": "109:105:51"
+      }
+    ],
+    "src": "0:215:51"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/filestore/FileStoreProxy.sol",
+      "exportedSymbols": {
+        "FileStoreProxy": [
+          18697
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 18686,
+        "name": "PragmaDirective",
+        "src": "0:23:51"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 15482,
+          "absolutePath": "project:/contracts/common/proxy/UpgradesAvailableProxy.sol",
+          "file": "../common/proxy/UpgradesAvailableProxy.sol",
+          "scope": 18698,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "UpgradesAvailableProxy"
+                },
+                "id": 18687,
+                "name": "Identifier",
+                "src": "33:22:51"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 18688,
+        "name": "ImportDirective",
+        "src": "25:82:51"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "contractDependencies": [
+            1011,
+            15481
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            18697,
+            15481,
+            1011
+          ],
+          "name": "FileStoreProxy",
+          "scope": 18698
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "UpgradesAvailableProxy",
+                  "referencedDeclaration": 15481,
+                  "type": "contract UpgradesAvailableProxy"
+                },
+                "id": 18689,
+                "name": "UserDefinedTypeName",
+                "src": "136:22:51"
+              }
+            ],
+            "id": 18690,
+            "name": "InheritanceSpecifier",
+            "src": "136:22:51"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "name": "",
+              "overrides": null,
+              "scope": 18697,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 18691,
+                "name": "ParameterList",
+                "src": "176:2:51"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 18694,
+                "name": "ParameterList",
+                "src": "210:0:51"
+              },
+              {
+                "attributes": {
+                  "arguments": [
+                    null
+                  ]
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 15481,
+                      "type": "type(contract UpgradesAvailableProxy)",
+                      "value": "UpgradesAvailableProxy"
+                    },
+                    "id": 18692,
+                    "name": "Identifier",
+                    "src": "186:22:51"
+                  }
+                ],
+                "id": 18693,
+                "name": "ModifierInvocation",
+                "src": "186:24:51"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 18695,
+                "name": "Block",
+                "src": "210:2:51"
+              }
+            ],
+            "id": 18696,
+            "name": "FunctionDefinition",
+            "src": "165:47:51"
+          }
+        ],
+        "id": 18697,
+        "name": "ContractDefinition",
+        "src": "109:105:51"
+      }
+    ],
+    "id": 18698,
+    "name": "SourceUnit",
+    "src": "0:215:51"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-11-17T03:08:55.555Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

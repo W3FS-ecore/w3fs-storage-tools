@@ -1,0 +1,1861 @@
+{
+  "contractName": "ValidatorVerifier",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "validatorSet",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isValidatorSetContract",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "signer",
+          "type": "address"
+        }
+      ],
+      "name": "isValidator",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "signer",
+          "type": "address"
+        }
+      ],
+      "name": "isProducer",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"isProducer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"isValidator\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isValidatorSetContract\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"validatorSet\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"isValidatorSetContract()\":{\"details\":\"Returns true if the caller is the current validator set contract.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ValidatorVerifier.sol\":\"ValidatorVerifier\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ValidatorSet.sol\":{\"keccak256\":\"0x9dc2354467582eec1d3b66bdbd021ef0a4a7a428e83de7211b1cf3e3d1affce8\",\"urls\":[\"bzz-raw://6cabe594123a3b2f87e260d801d923b04dafdc1913dc4bd5b0ff11df92814efe\",\"dweb:/ipfs/QmUeRnGzPWNedfBx9ixmMzi3uYSoEMnKmyGaCcoZ7PxPfS\"]},\"project:/contracts/ValidatorVerifier.sol\":{\"keccak256\":\"0x39d8db67f706e3f2d546fa4e7ca045b5f4cfc285d1293aa802d0a2ce767dd351\",\"urls\":[\"bzz-raw://b2f3d5c26813b596f9e31a5f6197672c2d136e3064d814d7ea12a09d2b688a23\",\"dweb:/ipfs/QmNfDAr7iL9J8ADQwWT1mhefKAMU8L4QUTexNdtP2BiXnE\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061027a806100206000396000f3fe608060405234801561001057600080fd5b5060043610610068577c010000000000000000000000000000000000000000000000000000000060003504639426e226811461006d578063d79e60b71461009e578063f5521022146100ba578063facd743b146100ed575b600080fd5b610075610120565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b6100a6610126565b604080519115158252519081900360200190f35b6100a6600480360360208110156100d057600080fd5b503573ffffffffffffffffffffffffffffffffffffffff1661012e565b6100a66004803603602081101561010357600080fd5b503573ffffffffffffffffffffffffffffffffffffffff166101d2565b61100081565b336110001490565b604080517f70ba570700000000000000000000000000000000000000000000000000000000815273ffffffffffffffffffffffffffffffffffffffff831660048201529051600091611000916370ba570791602480820192602092909190829003018186803b1580156101a057600080fd5b505afa1580156101b4573d6000803e3d6000fd5b505050506040513d60208110156101ca57600080fd5b505192915050565b604080517f55614fcc00000000000000000000000000000000000000000000000000000000815273ffffffffffffffffffffffffffffffffffffffff831660048201529051600091611000916355614fcc91602480820192602092909190829003018186803b1580156101a057600080fdfea26469706673582212205a00de414d8a4b6f577a04458f8a8537cf6445c44df08f51b7c7ea9cdfe5db4864736f6c63430006060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610068577c010000000000000000000000000000000000000000000000000000000060003504639426e226811461006d578063d79e60b71461009e578063f5521022146100ba578063facd743b146100ed575b600080fd5b610075610120565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b6100a6610126565b604080519115158252519081900360200190f35b6100a6600480360360208110156100d057600080fd5b503573ffffffffffffffffffffffffffffffffffffffff1661012e565b6100a66004803603602081101561010357600080fd5b503573ffffffffffffffffffffffffffffffffffffffff166101d2565b61100081565b336110001490565b604080517f70ba570700000000000000000000000000000000000000000000000000000000815273ffffffffffffffffffffffffffffffffffffffff831660048201529051600091611000916370ba570791602480820192602092909190829003018186803b1580156101a057600080fd5b505afa1580156101b4573d6000803e3d6000fd5b505050506040513d60208110156101ca57600080fd5b505192915050565b604080517f55614fcc00000000000000000000000000000000000000000000000000000000815273ffffffffffffffffffffffffffffffffffffffff831660048201529051600091611000916355614fcc91602480820192602092909190829003018186803b1580156101a057600080fdfea26469706673582212205a00de414d8a4b6f577a04458f8a8537cf6445c44df08f51b7c7ea9cdfe5db4864736f6c63430006060033",
+  "immutableReferences": {},
+  "sourceMap": "78:963:31:-:0;;;423:76;5:9:-1;2:2;;;27:1;24;17:12;2:2;423:76:31;78:963;;;;;;",
+  "deployedSourceMap": "78:963:31:-:0;;;;5:9:-1;2:2;;;27:1;24;17:12;2:2;78:963:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;12:1:-1;9;2:12;109:81:31;;;:::i;:::-;;;;;;;;;;;;;;;;;;;591:105;;;:::i;:::-;;;;;;;;;;;;;;;;;;906:133;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;-1:-1;906:133:31;;;;:::i;734:135::-;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;-1:-1;734:135:31;;;;:::i;109:81::-;148:42;109:81;:::o;591:105::-;665:10;148:42;665:26;591:105;:::o;906:133::-;982:52;;;;;;:44;:52;;;;;;;;963:4;;148:42;;982:44;;:52;;;;;;;;;;;;;;;148:42;982:52;;;2:2:-1;;;;27:1;24;17:12;2:2;982:52:31;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;982:52:31;;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;-1:-1;982:52:31;;906:133;-1:-1:-1;;906:133:31:o;734:135::-;811:53;;;;;;:45;:53;;;;;;;;792:4;;148:42;;811:45;;:53;;;;;;;;;;;;;;;148:42;811:53;;;2:2:-1;;;;27:1;24;17:12",
+  "source": "pragma solidity ^0.6.6;\n\nimport { ValidatorSet } from \"./ValidatorSet.sol\";\n\n\ncontract ValidatorVerifier {\n  address constant public validatorSet = 0x0000000000000000000000000000000000001000;\n\n  /**\n   * @dev Throws if called by any account other than the validator set.\n   */\n  modifier onlyValidatorSetContract() {\n    require(isValidatorSetContract(), \"Verifiable: caller is not the verifiable contract\");\n    _;\n  }\n\n  constructor () public {\n    // Doesn't work since contract is in genesis\n  }\n\n  /**\n   * @dev Returns true if the caller is the current validator set contract.\n   */\n  function isValidatorSetContract() public view returns (bool) {\n    return msg.sender == validatorSet;\n  }\n\n  // check if signer is validator\n  function isValidator(address signer) public view returns (bool) {\n    return ValidatorSet(validatorSet).isCurrentValidator(signer);\n  }\n\n  // check if signer is producer\n  function isProducer(address signer) public view returns (bool) {\n    return ValidatorSet(validatorSet).isCurrentProducer(signer);\n  }\n}\n",
+  "sourcePath": "/root/testnet/code/w3fs-genesis-contracts-bridge/contracts/ValidatorVerifier.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/ValidatorVerifier.sol",
+    "exportedSymbols": {
+      "ValidatorVerifier": [
+        6760
+      ]
+    },
+    "id": 6761,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 6697,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:31"
+      },
+      {
+        "absolutePath": "project:/contracts/ValidatorSet.sol",
+        "file": "./ValidatorSet.sol",
+        "id": 6699,
+        "nodeType": "ImportDirective",
+        "scope": 6761,
+        "sourceUnit": 6696,
+        "src": "25:50:31",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 6698,
+              "name": "ValidatorSet",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "34:12:31",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 6760,
+        "linearizedBaseContracts": [
+          6760
+        ],
+        "name": "ValidatorVerifier",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "functionSelector": "9426e226",
+            "id": 6702,
+            "mutability": "constant",
+            "name": "validatorSet",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 6760,
+            "src": "109:81:31",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 6700,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "109:7:31",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307830303030303030303030303030303030303030303030303030303030303030303030303031303030",
+              "id": 6701,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "148:42:31",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_address_payable",
+                "typeString": "address payable"
+              },
+              "value": "0x0000000000000000000000000000000000001000"
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6712,
+              "nodeType": "Block",
+              "src": "315:104:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 6706,
+                          "name": "isValidatorSetContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6729,
+                          "src": "329:22:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_bool_$",
+                            "typeString": "function () view returns (bool)"
+                          }
+                        },
+                        "id": 6707,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "329:24:31",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "56657269666961626c653a2063616c6c6572206973206e6f74207468652076657269666961626c6520636f6e7472616374",
+                        "id": 6708,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "355:51:31",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_8c926b36a34bd3252b100eecc826326e5d14e51448d1fede559bfa655be556bd",
+                          "typeString": "literal_string \"Verifiable: caller is not the verifiable contract\""
+                        },
+                        "value": "Verifiable: caller is not the verifiable contract"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_8c926b36a34bd3252b100eecc826326e5d14e51448d1fede559bfa655be556bd",
+                          "typeString": "literal_string \"Verifiable: caller is not the verifiable contract\""
+                        }
+                      ],
+                      "id": 6705,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "321:7:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 6709,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "321:86:31",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 6710,
+                  "nodeType": "ExpressionStatement",
+                  "src": "321:86:31"
+                },
+                {
+                  "id": 6711,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "413:1:31"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 6703,
+              "nodeType": "StructuredDocumentation",
+              "src": "195:81:31",
+              "text": "@dev Throws if called by any account other than the validator set."
+            },
+            "id": 6713,
+            "name": "onlyValidatorSetContract",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 6704,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "312:2:31"
+            },
+            "src": "279:140:31",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 6716,
+              "nodeType": "Block",
+              "src": "445:54:31",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 6717,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 6714,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "435:2:31"
+            },
+            "returnParameters": {
+              "id": 6715,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "445:0:31"
+            },
+            "scope": 6760,
+            "src": "423:76:31",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6728,
+              "nodeType": "Block",
+              "src": "652:44:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 6726,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 6723,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -15,
+                        "src": "665:3:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 6724,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "665:10:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 6725,
+                      "name": "validatorSet",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6702,
+                      "src": "679:12:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "665:26:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 6722,
+                  "id": 6727,
+                  "nodeType": "Return",
+                  "src": "658:33:31"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 6718,
+              "nodeType": "StructuredDocumentation",
+              "src": "503:85:31",
+              "text": "@dev Returns true if the caller is the current validator set contract."
+            },
+            "functionSelector": "d79e60b7",
+            "id": 6729,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isValidatorSetContract",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 6719,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "622:2:31"
+            },
+            "returnParameters": {
+              "id": 6722,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6721,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 6729,
+                  "src": "646:4:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6720,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "646:4:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "645:6:31"
+            },
+            "scope": 6760,
+            "src": "591:105:31",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6743,
+              "nodeType": "Block",
+              "src": "798:71:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 6740,
+                        "name": "signer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6731,
+                        "src": "857:6:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 6737,
+                            "name": "validatorSet",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6702,
+                            "src": "824:12:31",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 6736,
+                          "name": "ValidatorSet",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6695,
+                          "src": "811:12:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_ValidatorSet_$6695_$",
+                            "typeString": "type(contract ValidatorSet)"
+                          }
+                        },
+                        "id": 6738,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "811:26:31",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ValidatorSet_$6695",
+                          "typeString": "contract ValidatorSet"
+                        }
+                      },
+                      "id": 6739,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "isCurrentValidator",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6614,
+                      "src": "811:45:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_bool_$",
+                        "typeString": "function (address) view external returns (bool)"
+                      }
+                    },
+                    "id": 6741,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "811:53:31",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 6735,
+                  "id": 6742,
+                  "nodeType": "Return",
+                  "src": "804:60:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "facd743b",
+            "id": 6744,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isValidator",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 6732,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6731,
+                  "mutability": "mutable",
+                  "name": "signer",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 6744,
+                  "src": "755:14:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6730,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "755:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "754:16:31"
+            },
+            "returnParameters": {
+              "id": 6735,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6734,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 6744,
+                  "src": "792:4:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6733,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "792:4:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "791:6:31"
+            },
+            "scope": 6760,
+            "src": "734:135:31",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6758,
+              "nodeType": "Block",
+              "src": "969:70:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 6755,
+                        "name": "signer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6746,
+                        "src": "1027:6:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 6752,
+                            "name": "validatorSet",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6702,
+                            "src": "995:12:31",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 6751,
+                          "name": "ValidatorSet",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6695,
+                          "src": "982:12:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_ValidatorSet_$6695_$",
+                            "typeString": "type(contract ValidatorSet)"
+                          }
+                        },
+                        "id": 6753,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "982:26:31",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ValidatorSet_$6695",
+                          "typeString": "contract ValidatorSet"
+                        }
+                      },
+                      "id": 6754,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "isCurrentProducer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6621,
+                      "src": "982:44:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_bool_$",
+                        "typeString": "function (address) view external returns (bool)"
+                      }
+                    },
+                    "id": 6756,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "982:52:31",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 6750,
+                  "id": 6757,
+                  "nodeType": "Return",
+                  "src": "975:59:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "f5521022",
+            "id": 6759,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isProducer",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 6747,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6746,
+                  "mutability": "mutable",
+                  "name": "signer",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 6759,
+                  "src": "926:14:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6745,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "926:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "925:16:31"
+            },
+            "returnParameters": {
+              "id": 6750,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6749,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 6759,
+                  "src": "963:4:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6748,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "963:4:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "962:6:31"
+            },
+            "scope": 6760,
+            "src": "906:133:31",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 6761,
+        "src": "78:963:31"
+      }
+    ],
+    "src": "0:1042:31"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/ValidatorVerifier.sol",
+      "exportedSymbols": {
+        "ValidatorVerifier": [
+          6760
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 6697,
+        "name": "PragmaDirective",
+        "src": "0:23:31"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 6696,
+          "absolutePath": "project:/contracts/ValidatorSet.sol",
+          "file": "./ValidatorSet.sol",
+          "scope": 6761,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "ValidatorSet"
+                },
+                "id": 6698,
+                "name": "Identifier",
+                "src": "34:12:31"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 6699,
+        "name": "ImportDirective",
+        "src": "25:50:31"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            6760
+          ],
+          "name": "ValidatorVerifier",
+          "scope": 6761
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "9426e226",
+              "mutability": "constant",
+              "name": "validatorSet",
+              "overrides": null,
+              "scope": 6760,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "stateMutability": "nonpayable",
+                  "type": "address"
+                },
+                "id": 6700,
+                "name": "ElementaryTypeName",
+                "src": "109:7:31"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "307830303030303030303030303030303030303030303030303030303030303030303030303031303030",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "address payable",
+                  "value": "0x0000000000000000000000000000000000001000"
+                },
+                "id": 6701,
+                "name": "Literal",
+                "src": "148:42:31"
+              }
+            ],
+            "id": 6702,
+            "name": "VariableDeclaration",
+            "src": "109:81:31"
+          },
+          {
+            "attributes": {
+              "name": "onlyValidatorSetContract",
+              "overrides": null,
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": "@dev Throws if called by any account other than the validator set."
+                },
+                "id": 6703,
+                "name": "StructuredDocumentation",
+                "src": "195:81:31"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 6704,
+                "name": "ParameterList",
+                "src": "312:2:31"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_8c926b36a34bd3252b100eecc826326e5d14e51448d1fede559bfa655be556bd",
+                                  "typeString": "literal_string \"Verifiable: caller is not the verifiable contract\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                -18,
+                                -18
+                              ],
+                              "referencedDeclaration": -18,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 6705,
+                            "name": "Identifier",
+                            "src": "321:7:31"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "arguments": [
+                                null
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "bool",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    null
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 6729,
+                                  "type": "function () view returns (bool)",
+                                  "value": "isValidatorSetContract"
+                                },
+                                "id": 6706,
+                                "name": "Identifier",
+                                "src": "329:22:31"
+                              }
+                            ],
+                            "id": 6707,
+                            "name": "FunctionCall",
+                            "src": "329:24:31"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "56657269666961626c653a2063616c6c6572206973206e6f74207468652076657269666961626c6520636f6e7472616374",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Verifiable: caller is not the verifiable contract\"",
+                              "value": "Verifiable: caller is not the verifiable contract"
+                            },
+                            "id": 6708,
+                            "name": "Literal",
+                            "src": "355:51:31"
+                          }
+                        ],
+                        "id": 6709,
+                        "name": "FunctionCall",
+                        "src": "321:86:31"
+                      }
+                    ],
+                    "id": 6710,
+                    "name": "ExpressionStatement",
+                    "src": "321:86:31"
+                  },
+                  {
+                    "id": 6711,
+                    "name": "PlaceholderStatement",
+                    "src": "413:1:31"
+                  }
+                ],
+                "id": 6712,
+                "name": "Block",
+                "src": "315:104:31"
+              }
+            ],
+            "id": 6713,
+            "name": "ModifierDefinition",
+            "src": "279:140:31"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "overrides": null,
+              "scope": 6760,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 6714,
+                "name": "ParameterList",
+                "src": "435:2:31"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 6715,
+                "name": "ParameterList",
+                "src": "445:0:31"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 6716,
+                "name": "Block",
+                "src": "445:54:31"
+              }
+            ],
+            "id": 6717,
+            "name": "FunctionDefinition",
+            "src": "423:76:31"
+          },
+          {
+            "attributes": {
+              "functionSelector": "d79e60b7",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "isValidatorSetContract",
+              "overrides": null,
+              "scope": 6760,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": "@dev Returns true if the caller is the current validator set contract."
+                },
+                "id": 6718,
+                "name": "StructuredDocumentation",
+                "src": "503:85:31"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 6719,
+                "name": "ParameterList",
+                "src": "622:2:31"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 6729,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 6720,
+                        "name": "ElementaryTypeName",
+                        "src": "646:4:31"
+                      }
+                    ],
+                    "id": 6721,
+                    "name": "VariableDeclaration",
+                    "src": "646:4:31"
+                  }
+                ],
+                "id": 6722,
+                "name": "ParameterList",
+                "src": "645:6:31"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 6722
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "==",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": -15,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 6723,
+                                "name": "Identifier",
+                                "src": "665:3:31"
+                              }
+                            ],
+                            "id": 6724,
+                            "name": "MemberAccess",
+                            "src": "665:10:31"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 6702,
+                              "type": "address",
+                              "value": "validatorSet"
+                            },
+                            "id": 6725,
+                            "name": "Identifier",
+                            "src": "679:12:31"
+                          }
+                        ],
+                        "id": 6726,
+                        "name": "BinaryOperation",
+                        "src": "665:26:31"
+                      }
+                    ],
+                    "id": 6727,
+                    "name": "Return",
+                    "src": "658:33:31"
+                  }
+                ],
+                "id": 6728,
+                "name": "Block",
+                "src": "652:44:31"
+              }
+            ],
+            "id": 6729,
+            "name": "FunctionDefinition",
+            "src": "591:105:31"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "facd743b",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "isValidator",
+              "overrides": null,
+              "scope": 6760,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "signer",
+                      "overrides": null,
+                      "scope": 6744,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 6730,
+                        "name": "ElementaryTypeName",
+                        "src": "755:7:31"
+                      }
+                    ],
+                    "id": 6731,
+                    "name": "VariableDeclaration",
+                    "src": "755:14:31"
+                  }
+                ],
+                "id": 6732,
+                "name": "ParameterList",
+                "src": "754:16:31"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 6744,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 6733,
+                        "name": "ElementaryTypeName",
+                        "src": "792:4:31"
+                      }
+                    ],
+                    "id": 6734,
+                    "name": "VariableDeclaration",
+                    "src": "792:4:31"
+                  }
+                ],
+                "id": 6735,
+                "name": "ParameterList",
+                "src": "791:6:31"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 6735
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "bool",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "isCurrentValidator",
+                              "referencedDeclaration": 6614,
+                              "type": "function (address) view external returns (bool)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "contract ValidatorSet",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 6695,
+                                      "type": "type(contract ValidatorSet)",
+                                      "value": "ValidatorSet"
+                                    },
+                                    "id": 6736,
+                                    "name": "Identifier",
+                                    "src": "811:12:31"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 6702,
+                                      "type": "address",
+                                      "value": "validatorSet"
+                                    },
+                                    "id": 6737,
+                                    "name": "Identifier",
+                                    "src": "824:12:31"
+                                  }
+                                ],
+                                "id": 6738,
+                                "name": "FunctionCall",
+                                "src": "811:26:31"
+                              }
+                            ],
+                            "id": 6739,
+                            "name": "MemberAccess",
+                            "src": "811:45:31"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 6731,
+                              "type": "address",
+                              "value": "signer"
+                            },
+                            "id": 6740,
+                            "name": "Identifier",
+                            "src": "857:6:31"
+                          }
+                        ],
+                        "id": 6741,
+                        "name": "FunctionCall",
+                        "src": "811:53:31"
+                      }
+                    ],
+                    "id": 6742,
+                    "name": "Return",
+                    "src": "804:60:31"
+                  }
+                ],
+                "id": 6743,
+                "name": "Block",
+                "src": "798:71:31"
+              }
+            ],
+            "id": 6744,
+            "name": "FunctionDefinition",
+            "src": "734:135:31"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "f5521022",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "isProducer",
+              "overrides": null,
+              "scope": 6760,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "signer",
+                      "overrides": null,
+                      "scope": 6759,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 6745,
+                        "name": "ElementaryTypeName",
+                        "src": "926:7:31"
+                      }
+                    ],
+                    "id": 6746,
+                    "name": "VariableDeclaration",
+                    "src": "926:14:31"
+                  }
+                ],
+                "id": 6747,
+                "name": "ParameterList",
+                "src": "925:16:31"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 6759,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 6748,
+                        "name": "ElementaryTypeName",
+                        "src": "963:4:31"
+                      }
+                    ],
+                    "id": 6749,
+                    "name": "VariableDeclaration",
+                    "src": "963:4:31"
+                  }
+                ],
+                "id": 6750,
+                "name": "ParameterList",
+                "src": "962:6:31"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 6750
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "bool",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "isCurrentProducer",
+                              "referencedDeclaration": 6621,
+                              "type": "function (address) view external returns (bool)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "contract ValidatorSet",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 6695,
+                                      "type": "type(contract ValidatorSet)",
+                                      "value": "ValidatorSet"
+                                    },
+                                    "id": 6751,
+                                    "name": "Identifier",
+                                    "src": "982:12:31"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 6702,
+                                      "type": "address",
+                                      "value": "validatorSet"
+                                    },
+                                    "id": 6752,
+                                    "name": "Identifier",
+                                    "src": "995:12:31"
+                                  }
+                                ],
+                                "id": 6753,
+                                "name": "FunctionCall",
+                                "src": "982:26:31"
+                              }
+                            ],
+                            "id": 6754,
+                            "name": "MemberAccess",
+                            "src": "982:44:31"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 6746,
+                              "type": "address",
+                              "value": "signer"
+                            },
+                            "id": 6755,
+                            "name": "Identifier",
+                            "src": "1027:6:31"
+                          }
+                        ],
+                        "id": 6756,
+                        "name": "FunctionCall",
+                        "src": "982:52:31"
+                      }
+                    ],
+                    "id": 6757,
+                    "name": "Return",
+                    "src": "975:59:31"
+                  }
+                ],
+                "id": 6758,
+                "name": "Block",
+                "src": "969:70:31"
+              }
+            ],
+            "id": 6759,
+            "name": "FunctionDefinition",
+            "src": "906:133:31"
+          }
+        ],
+        "id": 6760,
+        "name": "ContractDefinition",
+        "src": "78:963:31"
+      }
+    ],
+    "id": 6761,
+    "name": "SourceUnit",
+    "src": "0:1042:31"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-11-17T02:32:21.857Z",
+  "devdoc": {
+    "methods": {
+      "isValidatorSetContract()": {
+        "details": "Returns true if the caller is the current validator set contract."
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

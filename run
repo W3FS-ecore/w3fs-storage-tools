@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# start java application springsell
+
+#获取文件路径
+bin_path=`cd $(dirname $0); pwd`
+#读取文件下所有文件
+logfile=$bin_path/httpUtil.log
+
+checkps(){
+  PID=$(ps -ef | grep $1 | grep -v grep | awk '{print $2}')
+
+  if [ -z "$PID" ];then
+    echo Application is already stopped
+  else
+    echo kill $PID
+    kill -9 $PID
+    sleep 2
+  fi
+}
+
+creatlogfile(){
+  if [ ! -d "$bin_path/log" ];then
+    mkdir $bin_path/log
+  fi
+  if [ ! -f "$logfile" ];then
+    touch $logfile
+  fi
+}
+
+runjar(){
+  #检查是否已经运行
+  echo "准备运行===>$1"
+  checkps $1
+
+  creatlogfile
+  $(nohup java -jar $1 > $logfile 2>&1 & )
+}
+
+filename=http-1.0-SNAPSHOT.jar
+runjar $filename
+echo "$filename is running..."
+echo successful
+echo "再次检查是否正常启动"
+ps -ef | grep $filename | grep -v grep
